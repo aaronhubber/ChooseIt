@@ -8,9 +8,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "workshop_pictures")
-
-
-public class WorkshopPicture {
+public class WorkshopPicture implements IChoice {
 
 
     @Id

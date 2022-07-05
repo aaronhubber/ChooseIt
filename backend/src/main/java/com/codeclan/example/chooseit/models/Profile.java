@@ -3,6 +3,7 @@ package com.codeclan.example.chooseit.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 
 
 @Entity
@@ -17,6 +18,9 @@ public class Profile {
 
     @Column(name = "name")
     private String name;
+
+    @Column(name = "choices")
+    private ArrayList<MyChoice> myChoice;
 
     @Column(name = "assistance_level")
     @Enumerated(value = EnumType.STRING)
@@ -34,11 +38,10 @@ public class Profile {
     public Profile() {
     }
 
-    public Profile(String name,
-                   AssistanceLevel assistanceLevel) {
+    public Profile(String name, AssistanceLevel assistanceLevel) {
         this.name = name;
-
         this.assistanceLevel = assistanceLevel;
+        this.myChoice= new ArrayList<>();
     }
 
 //    *******************************************************
