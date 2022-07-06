@@ -19,8 +19,8 @@ public class Profile {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "choices")
-    private ArrayList<MakeAChoice> myChoice;
+//    @Column(name = "choices")
+//    private ArrayList<MakeAChoice> myChoice;
 
     @Column(name = "assistance_level")
     @Enumerated(value = EnumType.STRING)
@@ -41,7 +41,7 @@ public class Profile {
     public Profile(String name, AssistanceLevel assistanceLevel) {
         this.name = name;
         this.assistanceLevel = assistanceLevel;
-        this.myChoice= new ArrayList<>();
+//        this.myChoice= new ArrayList<>();
     }
 
 //    *******************************************************

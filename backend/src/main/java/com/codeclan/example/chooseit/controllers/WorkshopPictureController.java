@@ -24,13 +24,13 @@ public class WorkshopPictureController {
     @Autowired
     WorkshopPictureRepository workshopPictureRepository;
 
-    @GetMapping (value = "/workshoppictures")
-    public ResponseEntity<List<WorkshopPicture>> getWorkshopPictures(){
+    @GetMapping(value = "/workshoppictures")
+    public ResponseEntity<List<WorkshopPicture>> getWorkshopPictures() {
         return new ResponseEntity<>(workshopPictureRepository.findAll(), HttpStatus.OK);
     }
 
 
-    @RequestMapping(path = "/workshoppictures", method = POST, consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
+    @RequestMapping(path = "/workshoppictures", method = POST, consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
     public WorkshopPicture addWorkshopPicture(@RequestPart MultipartFile file, @RequestPart WorkshopPicture pictureInfo)
             throws IOException {
 
@@ -44,6 +44,7 @@ public class WorkshopPictureController {
         workshopPictureRepository.save(workshopPicture);
         return workshopPicture;
     }
+}
 //    @PostMapping
 //    public ResponseEntity<String> upload(@RequestParam("workshopPicture") MultipartFile image, Model model) {
 //        try {
@@ -73,7 +74,6 @@ public class WorkshopPictureController {
 //        return userProfileRepository.getById(id).getName();
 //    }
 
-    get
 
 
-}
+
