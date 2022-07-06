@@ -1,13 +1,12 @@
 package com.codeclan.example.chooseit.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.springframework.boot.SpringApplication;
+
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "choices")
-public class MyChoice{
+public class MakeAChoice {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +16,9 @@ public class MyChoice{
     @Column(name = "date")
     private String date;
     @Column(name = "choices")
-    private ArrayList<IChoice> choices;
+    private ArrayList<WorkshopPicture> choices;
+
+    private WorkshopPicture workshopPicture;
 
 
     @JsonIgnoreProperties({"user"}) //can add more than one field
@@ -25,9 +26,10 @@ public class MyChoice{
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private Profile profile;
 
-    public MyChoice(String date) {
+    public MakeAChoice(String date, WorkshopPicture workshopPicture) {
         this.date = date;
-        this.choices = new ArrayList<IChoice>();
+        this.choices = new ArrayList<WorkshopPicture>();
+        this.workshopPicture = workshopPicture;
     }
 
 
@@ -41,7 +43,7 @@ public class MyChoice{
         this.choices = choices;
     }
 
-    public MyChoice() {
+    public MakeAChoice() {
     }
 
     public Long getId() {
@@ -70,6 +72,13 @@ public class MyChoice{
 
     public void addChoiceToChoiceArray(IChoice choice){
         this.choices.add(choice);
+    }
+
+    public ArrayList<MakeAChoice> makeYourChoice{
+        iterate through <IChoose.genre.art> and iterate through <Ichoose.genre.music>
+            makes a new array list
+        compare contents of list to form result
+            return add to
     }
 
 

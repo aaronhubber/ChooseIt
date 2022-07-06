@@ -24,7 +24,7 @@ public class WorkshopPicture implements IChoice {
     private Genre genre;
 
     @Column(name = "workshop_picture")
-    @JsonManagedReference //Forward looking
+    @JsonBackReference //Forward looking
     @Lob
     private byte[] picture;
 

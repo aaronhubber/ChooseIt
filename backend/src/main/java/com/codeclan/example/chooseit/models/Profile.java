@@ -20,7 +20,7 @@ public class Profile {
     private String name;
 
     @Column(name = "choices")
-    private ArrayList<MyChoice> myChoice;
+    private ArrayList<MakeAChoice> myChoice;
 
     @Column(name = "assistance_level")
     @Enumerated(value = EnumType.STRING)

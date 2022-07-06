@@ -30,26 +30,16 @@ public class WorkshopPictureController {
     }
 
 
-    @PostMapping(value = "/workshoppictures")
-    public List addWorkshopPicture(@PathVariable Long id,
-                                    @RequestParam("profilepicture") MultipartFile pic, Model model)
-            throws IOException {
-        WorkshopPicture picToSave = new WorkshopPicture();
-        picToSave.setPicture(pic.getBytes());
-        workshopPictureRepository.save(picToSave);
-        return workshopPictureRepository.findAll();
-    }
-
     @RequestMapping(path = "/workshoppictures", method = POST, consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
-    public WorkshopPicture addWorkshopPicture(@RequestPart MultipartFile file)
+    public WorkshopPicture addWorkshopPicture(@RequestPart MultipartFile file, @RequestPart WorkshopPicture pictureInfo)
             throws IOException {
 
         WorkshopPicture workshopPicture = new WorkshopPicture();
 
         workshopPicture.setPicture(file.getBytes());
-        workshopPicture.setGenre(workshopPicture.getGenre());
-        workshopPicture.setDescription(workshopPicture.getDescription());
-
+        workshopPicture.setGenre(pictureInfo.getGenre());
+        workshopPicture.setDescription(pictureInfo.getDescription());
+        workshopPicture.setContentType((file.getContentType()));
 
         workshopPictureRepository.save(workshopPicture);
         return workshopPicture;
@@ -82,5 +72,8 @@ public class WorkshopPictureController {
 //
 //        return userProfileRepository.getById(id).getName();
 //    }
+
+    get
+
 
 }
