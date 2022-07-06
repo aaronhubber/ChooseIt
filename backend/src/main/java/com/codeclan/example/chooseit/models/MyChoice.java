@@ -65,10 +65,12 @@ public class MyChoice{
         this.profile = profile;
     }
 
+
+    //endregion
+
     public void addChoiceToChoiceArray(IChoice choice){
         this.choices.add(choice);
     }
 
-    //endregion
 
 }
