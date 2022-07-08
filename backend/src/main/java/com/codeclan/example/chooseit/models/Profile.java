@@ -19,34 +19,23 @@ public class Profile {
     @Column(name = "name")
     private String name;
 
-//    @Column(name = "choices")
-//    private ArrayList<MakeAChoice> myChoice;
-
     @Column(name = "assistance_level")
-    @Enumerated(value = EnumType.STRING)
-    private AssistanceLevel assistanceLevel;
+    private String assistanceLevel;
 
 
     @OneToOne(cascade = CascadeType.ALL)
     private ProfilePicture profilepicture;
 
 
-//    *******************************************************
-//                       CONSTRUCTORS
-//    *******************************************************
-
     public Profile() {
     }
 
-    public Profile(String name, AssistanceLevel assistanceLevel) {
+    public Profile(String name, String assistanceLevel) {
         this.name = name;
         this.assistanceLevel = assistanceLevel;
-//        this.myChoice= new ArrayList<>();
+
     }
 
-//    *******************************************************
-//                   GETTERS AND SETTERS
-//    *******************************************************
 
     public Long getId() {
         return id;
@@ -73,11 +62,11 @@ public class Profile {
         this.profilepicture = profilepicture;
     }
 
-    public AssistanceLevel getUserType() {
+    public String getAssistanceLevel() {
         return assistanceLevel;
     }
 
-    public void setUserType(AssistanceLevel assistanceLevel) {
+    public void setAssistanceLevel(String assistanceLevel) {
         this.assistanceLevel = assistanceLevel;
     }
 }

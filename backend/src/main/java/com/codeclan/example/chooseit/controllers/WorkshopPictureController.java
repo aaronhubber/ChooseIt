@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,12 +40,21 @@ public class WorkshopPictureController {
         workshopPicture.setPicture(file.getBytes());
         workshopPicture.setGenre(pictureInfo.getGenre());
         workshopPicture.setDescription(pictureInfo.getDescription());
-        workshopPicture.setContentType((file.getContentType()));
+//        workshopPicture.setContentType((file.getContentType()));
 
         workshopPictureRepository.save(workshopPicture);
         return workshopPicture;
     }
-}
+
+    @DeleteMapping(value = "/workshoppictures/{id}")
+    public ResponseEntity<Long> deletePicture(@PathVariable Long id) {
+
+        workshopPictureRepository.deleteAllById(Collections.singleton(id));
+
+        return new ResponseEntity<>(id, HttpStatus.OK);
+    }
+    }
+
 //    @PostMapping
 //    public ResponseEntity<String> upload(@RequestParam("workshopPicture") MultipartFile image, Model model) {
 //        try {

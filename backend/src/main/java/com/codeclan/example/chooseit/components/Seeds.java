@@ -34,33 +34,29 @@ public class Seeds implements ApplicationRunner {
         WorkshopPicture workshopPictureG1 = new WorkshopPicture(bos.toByteArray(), Genre.GARDENING, "man next to garden planter" );
         workshopPictureRepository.save(workshopPictureG1);
 
-//        BufferedImage bImage1 = ImageIO.read(new File("/Users/aaron/Documents/RaisedBed1.png"));
-//        ByteArrayOutputStream bos1 = new ByteArrayOutputStream();
-//        ImageIO.write(bImage1, "png", bos1 );
-//
-//        WorkshopPicture workshopPictureG2 = new WorkshopPicture(bos.toByteArray(), Genre.GARDENING, "woman in wheelchair next to raised planting bed" );
-//        workshopPictureRepository.save(workshopPictureG2);
-//
-//        BufferedImage bImage3 = ImageIO.read(new File("/Users/aaron/Documents/Wheelbarrow.png"));
-//        ByteArrayOutputStream bos3 = new ByteArrayOutputStream();
-//        ImageIO.write(bImage3, "png", bos3 );
-//
-//        WorkshopPicture workshopPictureG3 = new WorkshopPicture(bos.toByteArray(), Genre.GARDENING, "man carrying a wheelbarrow of soil" );
-//        workshopPictureRepository.save(workshopPictureG3);
-//
-//        BufferedImage bImage4 = ImageIO.read(new File("/Users/aaron/Documents/MusicGroup.png"));
-//        ByteArrayOutputStream bos4 = new ByteArrayOutputStream();
-//        ImageIO.write(bImage4, "png", bos4 );
-//
-//        WorkshopPicture workshopPictureM1 = new WorkshopPicture(bos.toByteArray(), Genre.GARDENING, "five person band" );
-//        workshopPictureRepository.save(workshopPictureM1);
-//
-//        BufferedImage bImage5 = ImageIO.read(new File("/Users/aaron/Documents/Guitar.png"));
-//        ByteArrayOutputStream bos5 = new ByteArrayOutputStream();
-//        ImageIO.write(bImage5, "png", bos5 );
-//
-//        WorkshopPicture workshopPictureM2 = new WorkshopPicture(bos.toByteArray(), Genre.MUSIC, "man playing guitar" );
-//        workshopPictureRepository.save(workshopPictureM2);
+        BufferedImage bImage1 = ImageIO.read(new File("/Users/aaron/Documents/Raised.png"));
+        ImageIO.write(bImage1, "png", bos );
+
+        WorkshopPicture workshopPictureG2 = new WorkshopPicture(bos.toByteArray(), Genre.GARDENING, "woman in wheelchair next to raised planting bed" );
+        workshopPictureRepository.save(workshopPictureG2);
+
+        BufferedImage bImage3 = ImageIO.read(new File("/Users/aaron/Documents/Wheelbarrow.png"));
+        ImageIO.write(bImage3, "png", bos );
+
+        WorkshopPicture workshopPictureG3 = new WorkshopPicture(bos.toByteArray(), Genre.GARDENING, "man carrying a wheelbarrow of soil" );
+        workshopPictureRepository.save(workshopPictureG3);
+
+        BufferedImage bImage4 = ImageIO.read(new File("/Users/aaron/Documents/MusicGroup.png"));
+        ImageIO.write(bImage4, "png", bos );
+
+        WorkshopPicture workshopPictureM1 = new WorkshopPicture(bos.toByteArray(), Genre.MUSIC, "five person band" );
+        workshopPictureRepository.save(workshopPictureM1);
+
+        BufferedImage bImage5 = ImageIO.read(new File("/Users/aaron/Documents/Guitar.png"));
+        ImageIO.write(bImage5, "png", bos );
+
+        WorkshopPicture workshopPictureM2 = new WorkshopPicture(bos.toByteArray(), Genre.MUSIC, "man playing guitar" );
+        workshopPictureRepository.save(workshopPictureM2);
     }
 
 }

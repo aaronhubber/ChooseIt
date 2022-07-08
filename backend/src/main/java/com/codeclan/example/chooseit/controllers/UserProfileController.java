@@ -50,7 +50,7 @@ public class UserProfileController {
         return profile;
     }
 
-    //@PostMapping (value = "/userprofiles/{id}")
+
     @RequestMapping(path = "/userprofiles", method = POST, consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
     public Profile addUserTest(@RequestPart Profile inputProfile,
                                @RequestPart MultipartFile file)
@@ -66,9 +66,13 @@ public class UserProfileController {
         return profile;
     }
 
+    @DeleteMapping(value = "/userprofiles/{id}")
+    public ResponseEntity<Long> deleteProfile(@PathVariable Long id) {
 
+        userProfileRepository.deleteAllById(Collections.singleton(id));
 
-
+        return new ResponseEntity<>(id, HttpStatus.OK);
+    }
 
     @GetMapping(value = "/userprofile/{id}/profilepicture")
     public ResponseEntity<byte[]> getProfilePictureByUserProfileId(@PathVariable Long id) {

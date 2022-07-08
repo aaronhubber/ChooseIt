@@ -9,5 +9,9 @@ import java.util.List;
 
 @Repository
 public interface WorkshopPictureRepository extends JpaRepository<WorkshopPicture, Long> {
+
     List<WorkshopPicture> findByGenre(Genre genre);
 }
+
+
+
