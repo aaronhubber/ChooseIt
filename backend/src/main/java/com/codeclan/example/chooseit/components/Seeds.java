@@ -35,9 +35,10 @@ public class Seeds implements ApplicationRunner {
         workshopPictureRepository.save(workshopPictureG1);
 
         BufferedImage bImage1 = ImageIO.read(new File("src/main/resources/assets/images/workshop/workshop/Raised.png"));
-        ImageIO.write(bImage1, "png", bos );
+        ByteArrayOutputStream bos2 = new ByteArrayOutputStream();
+        ImageIO.write(bImage1, "png", bos2 );
 
-        WorkshopPicture workshopPictureG2 = new WorkshopPicture(bos.toByteArray(), Genre.GARDENING, "woman in wheelchair next to raised planting bed" );
+        WorkshopPicture workshopPictureG2 = new WorkshopPicture(bos2.toByteArray(), Genre.GARDENING, "woman in wheelchair next to raised planting bed" );
         workshopPictureRepository.save(workshopPictureG2);
 
         BufferedImage bImage3 = ImageIO.read(new File("src/main/resources/assets/images/workshop/workshop/Wheelbarrow.png"));
