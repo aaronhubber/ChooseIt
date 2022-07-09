@@ -30,6 +30,12 @@ public class WorkshopPictureController {
     public ResponseEntity<List<WorkshopPicture>> getWorkshopPictures() {
         return new ResponseEntity<>(workshopPictureRepository.findAll(), HttpStatus.OK);
     }
+
+
+    @GetMapping(value = "/workshoppictures/{id}")
+    public ResponseEntity<Optional<WorkshopPicture>> getUserProfiles(@PathVariable(name = "id") Long id){
+        return new ResponseEntity<>(workshopPictureRepository.findById(id), HttpStatus.OK);
+    }
 //
 //    @GetMapping(value = "/randomworkshopimage/{genre}")
 //    public ResponseEntity<List<WorkshopPicture>> getARandomWorkshopPicture(@PathVariable Genre genre) {
