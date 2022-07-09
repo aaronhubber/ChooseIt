@@ -24,7 +24,7 @@ public class WorkshopPicture {
     private Genre genre;
 
     @Column(name = "workshop_picture")
-    @JsonBackReference //Forward looking
+//    @JsonBackReference //Forward looking
     @Lob
     private byte[] picture;
 
