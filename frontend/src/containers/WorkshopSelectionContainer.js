@@ -4,6 +4,7 @@ import WorkshopPicture from '../components/WorkshopPicture';
 
 const WorkshopSelectionContainer = ({workshopPicture, allWorkshopPictures}) => {
 
+
     const pictureTiles = allWorkshopPictures?.map((workshopPicture, index) => {
         return <WorkshopPicture workshopPicture={workshopPicture} key={index} />;
       });

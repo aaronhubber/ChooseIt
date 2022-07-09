@@ -1,21 +1,18 @@
 import React, {useState, useEffect} from 'react'
 import UserProfile from '../components/UserProfile';
-// import getUsers from '../services/services';
 
-const UserProfilesSelectContainer = () => {
+const UserProfilesSelectContainer = ({allProfiles}) => {
 
-  const [allProfiles, setAllProfiles] = useState([]);
-
-  useEffect(() => {
-    getUsers().then((res2) => setAllProfiles(res2));
-  }, []);
+  // useEffect(() => {
+  //   getProfiles().then((res2) => setAllProfiles(res2));
+  // }, []);
 
 
 
-   const getUsers = () => {
-    return fetch("http://localhost:8080/userprofiles")
-    .then((res) => res.json());
-};
+//    const getUsers = () => {
+//     return fetch("http://localhost:8080/userprofiles")
+//     .then((res) => res.json());
+// };
 
 
 

@@ -53,6 +53,12 @@ public class WorkshopPictureController {
 
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
+
+    @GetMapping(value = "/workshoppictures/{id}")
+    public ResponseEntity<Optional<WorkshopPicture>> getWorkshopPicturebyID(@PathVariable(name = "id") Long id){
+        return new ResponseEntity<>(workshopPictureRepository.findById(id), HttpStatus.OK);
+    }
+
     }
 
 //    @PostMapping
