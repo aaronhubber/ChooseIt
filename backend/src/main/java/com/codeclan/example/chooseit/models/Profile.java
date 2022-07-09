@@ -1,5 +1,6 @@
 package com.codeclan.example.chooseit.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 
 @Entity
 @Table(name = "profiles")
-@JsonIgnoreProperties({"user", "profilepicture", "scripts", "licenses"})
+@JsonIgnoreProperties({"user", "scripts", "licenses"})
 public class Profile {
 
     @Id

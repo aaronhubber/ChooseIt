@@ -1,12 +1,14 @@
 package com.codeclan.example.chooseit.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name ="profilepictures")
+@JsonIgnoreProperties({"profile"})
 public class ProfilePicture {
 
     @Id
@@ -24,7 +26,6 @@ public class ProfilePicture {
     private byte[] picture;
 
     @OneToOne(mappedBy = "profilepicture")
-    @JsonBackReference
     private Profile profile;
 
     public ProfilePicture() {
