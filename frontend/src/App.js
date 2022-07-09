@@ -1,45 +1,57 @@
 import React, {useEffect, useState} from 'react';
-import ChoiceSelectionContainer from './containers/ChoiceSelectionContainer';
 import UserHomepageContainer from './containers/UserHomepageContainer';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import UserProfilesSelectContainer from './containers/UserProfilesSelectContainer';
-import { getProfilePics, getUsers, getImages} from './services/services';
+import { getUsers, getImages} from './services/services';
 import ScheduleContainer from './containers/ScheduleContainer'
 import UserProfile from './components/UserProfile';
 import ChoiceHomeContainer from './containers/ChoiceHomeContainer';
+import WorkshopSelectionContainer from './containers/WorkshopSelectionContainer';
+import EmotionSelectionContainer from './containers/EmotionSelectionContainer';
+
 
 function App() {
 
 
-  const [allProfiles, setAllProfiles] = useState([]);
   const [allWorkshopPictures, setAllWorkshopPictures] = useState([]);
+  const [currentProfile, setCurrentProfile] = useState(null)
 
 
-  useEffect(() => {
-    getUsers().then((res) => setAllProfiles(res));
-  }, []);
+  // useEffect(() => {
+  //   getUsers();
+  // }, []);
 
   useEffect(() => {
     getImages().then((res) => setAllWorkshopPictures(res));
   }, []);
 
+
   // useEffect(() => {
   //   getProfilePics().then((res) => setAllProfilePics(res));
   // }, []);
 
-  
+  const selectProfile = (profile) => {
+    setCurrentProfile(profile);
+  };
+
+// const getUsers = () => {
+//     fetch("http://localhost:8080/userprofiles")
+//     .then((res) => res.json())
+//     .then(allProfiles => setAllProfiles(allProfiles));
+//     // .catch(error => console.error);
+// };
 
   return (
     <div>
-    <h3> ChooseIt</h3>
     <Router>
         <Routes>
-          <Route path="/home" element={UserProfile?(<UserHomepageContainer/>):(<UserProfilesSelectContainer 
-          allProfiles = {allProfiles}/>)}/>
-          <Route path="/workshopchoice" element={<ChoiceSelectionContainer
+          <Route path="/" element={<UserHomepageContainer/>}/>
+          <Route path = "/selectprofile" element={<UserProfilesSelectContainer />}/>
+          <Route path="/workshopchoice" element={<WorkshopSelectionContainer
           allWorkshopPictures ={allWorkshopPictures}/>}/>
           <Route path="/todo" element={<ScheduleContainer/>}/>
-          <Route path="/makeachoice" element={<ChoiceHomeContainer/>}/>
+          <Route path="/whatchoice" element={<ChoiceHomeContainer/>}/>
+          <Route path="/emotionchoice" element={<EmotionSelectionContainer/>}/>
         </Routes>
     </Router>
     </div>

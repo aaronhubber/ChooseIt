@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 @Entity
 @Table(name = "profiles")
-@JsonIgnoreProperties({"user", "profilepicture", "scripts", "licenses"})
+@JsonIgnoreProperties({"user", "scripts", "licenses"})
 public class Profile {
 
     @Id

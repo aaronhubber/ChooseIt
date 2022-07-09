@@ -1,12 +1,12 @@
 
-export const getUsers = () => {
-    return fetch("http://localhost:8080/userprofiles")
-    .then((res) => res.json());
-};
+// export const getUsers = () => {
+//     return fetch("http://localhost:8080/userprofiles")
+//     .then((res) => res.json());
+// };
 
 export const getImages = () => {
     return fetch("http://localhost:8080/workshoppictures")
-    .then((res) => res.json());
+    .then((res) => res.json())
 };
 
 

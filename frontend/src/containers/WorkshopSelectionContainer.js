@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import WorkshopPicture from '../components/WorkshopPicture';
 
 
-const ChoiceSelectionContainer = ({workshopPicture, allWorkshopPictures}) => {
+const WorkshopSelectionContainer = ({workshopPicture, allWorkshopPictures}) => {
 
     const pictureTiles = allWorkshopPictures?.map((workshopPicture, index) => {
         return <WorkshopPicture workshopPicture={workshopPicture} key={index} />;
@@ -17,13 +17,9 @@ const ChoiceSelectionContainer = ({workshopPicture, allWorkshopPictures}) => {
   return (
 
     <>
-    <div>
-    <div>{pictureTiles} 
-    </div>
-      <h2>I am a workshoppictureslist</h2>
-    </div>
+    <div>{pictureTiles}</div>
     </>
   )
 }
 
-export default ChoiceSelectionContainer
+export default WorkshopSelectionContainer

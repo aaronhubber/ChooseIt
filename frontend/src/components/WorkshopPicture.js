@@ -4,6 +4,8 @@ const WorkshopPicture = ({workshopPicture}) => {
 
   let byteSource = "data:image/png;base64," + workshopPicture.picture
   
+
+  
   return (
     <>
     <div>
