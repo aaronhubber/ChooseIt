@@ -1,5 +1,6 @@
 package com.codeclan.example.chooseit.controllers;
 
+import com.codeclan.example.chooseit.models.Genre;
 import com.codeclan.example.chooseit.models.Profile;
 import com.codeclan.example.chooseit.models.ProfilePicture;
 import com.codeclan.example.chooseit.models.WorkshopPicture;
@@ -29,6 +30,12 @@ public class WorkshopPictureController {
     public ResponseEntity<List<WorkshopPicture>> getWorkshopPictures() {
         return new ResponseEntity<>(workshopPictureRepository.findAll(), HttpStatus.OK);
     }
+//
+//    @GetMapping(value = "/randomworkshopimage/{genre}")
+//    public ResponseEntity<List<WorkshopPicture>> getARandomWorkshopPicture(@PathVariable Genre genre) {
+//        return new ResponseEntity<>(workshopPictureRepository.findRandomWorkshopPicture(genre), HttpStatus.OK);
+//    }
+
 
 
     @RequestMapping(path = "/workshoppictures", method = POST, consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
