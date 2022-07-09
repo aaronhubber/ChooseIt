@@ -2,16 +2,21 @@ import React from 'react';
 import styled from 'styled-components'
 import schedule from "../assets/images/schedule2.png"
 import choices from "../assets/images/choices.png"
-import ChoiceSelectionContainer from './ChoiceSelectionContainer';
+import countdown from "../assets/images/countdown.png"
+import {Link } from "react-router-dom";
 
 const ImageBanners = styled.img`
 width: 100%;
-padding-bottom:2%;
+padding-bottom:0.5vw;
 margin:0;
 `;
 
 const TextAndImage = styled.div`
   position: relative;
+  margin-top:0.5vw;
+  &:hover{
+    transform:scale(1.1);
+  }
 `;
 
 const TextOverlay = styled.div`
@@ -22,27 +27,36 @@ const TextOverlay = styled.div`
 
 const Text = styled.h3`
   color: white;
-  font-size: 40px;
+  font-size: 3vw;
 `;
 
 const UserHomepageContainer = () => {
   return (
     <>
+    <Link style={{ textDecoration: "none" }} to="/todo">
     <TextAndImage>
       <ImageBanners src = {schedule}/>
         <TextOverlay>
               <Text> To Do Today</Text>
         </TextOverlay>
       </TextAndImage>
-      <TextAndImage>
-      <ImageBanners src = {choices}/>
-        <TextOverlay>
-              <Text> Make A Choice</Text>
-        </TextOverlay>
-      </TextAndImage>
-      <div>
-        <ChoiceSelectionContainer/>
-      </div>
+      </Link>
+      <Link style={{ textDecoration: "none" }} to="/whatchoice">
+        <TextAndImage>
+        <ImageBanners src = {choices}/>
+          <TextOverlay>
+                  <Text> Make A Choice</Text>
+          </TextOverlay>
+        </TextAndImage>
+        </Link>
+        <Link style={{ textDecoration: "none" }} to="/">
+        <TextAndImage>
+        <ImageBanners src = {countdown}/>
+          <TextOverlay>
+                  <Text> Countdown</Text>
+          </TextOverlay>
+        </TextAndImage>
+        </Link>
     </>
   )
 }
