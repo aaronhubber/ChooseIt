@@ -1,9 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import ChoiceSelectionContainer from './containers/ChoiceSelectionContainer';
 import UserHomepageContainer from './containers/UserHomepageContainer';
-// import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import UserProfilesSelectContainer from './containers/UserProfilesSelectContainer';
 import { getProfilePics, getUsers, getImages} from './services/services';
+import ScheduleContainer from './containers/ScheduleContainer'
+import UserProfile from './components/UserProfile';
+import ChoiceHomeContainer from './containers/ChoiceHomeContainer';
 
 function App() {
 
@@ -29,9 +32,16 @@ function App() {
   return (
     <div>
     <h3> ChooseIt</h3>
-    <UserProfilesSelectContainer allProfiles = {allProfiles}/>
-    <UserHomepageContainer/>
-    <ChoiceSelectionContainer allWorkshopPictures ={allWorkshopPictures}/>
+    <Router>
+        <Routes>
+          <Route path="/home" element={UserProfile?(<UserHomepageContainer/>):(<UserProfilesSelectContainer 
+          allProfiles = {allProfiles}/>)}/>
+          <Route path="/workshopchoice" element={<ChoiceSelectionContainer
+          allWorkshopPictures ={allWorkshopPictures}/>}/>
+          <Route path="/todo" element={<ScheduleContainer/>}/>
+          <Route path="/makeachoice" element={<ChoiceHomeContainer/>}/>
+        </Routes>
+    </Router>
     </div>
   );
 }

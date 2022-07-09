@@ -1,10 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 
 const ChoiceHomeContainer = () => {
   return (
-    <div>
-      <h2>What kind of choice container</h2>
-    </div>
+    <Link style={{ textDecoration: "none" }} to="/workshopchoices">
+      <h2>WorkshopChoice</h2>
+    </Link>
   )
 }
 

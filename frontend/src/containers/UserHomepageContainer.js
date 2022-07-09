@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import schedule from "../assets/images/schedule2.png"
 import choices from "../assets/images/choices.png"
 import ChoiceSelectionContainer from './ChoiceSelectionContainer';
+import {Link } from "react-router-dom";
 
 const ImageBanners = styled.img`
 width: 100%;
@@ -28,21 +29,22 @@ const Text = styled.h3`
 const UserHomepageContainer = () => {
   return (
     <>
+    <Link style={{ textDecoration: "none" }} to="/">
     <TextAndImage>
       <ImageBanners src = {schedule}/>
         <TextOverlay>
               <Text> To Do Today</Text>
         </TextOverlay>
       </TextAndImage>
-      <TextAndImage>
-      <ImageBanners src = {choices}/>
-        <TextOverlay>
-              <Text> Make A Choice</Text>
-        </TextOverlay>
-      </TextAndImage>
-      <div>
-        <ChoiceSelectionContainer/>
-      </div>
+      </Link>
+      <Link style={{ textDecoration: "none" }} to="/">
+        <TextAndImage>
+        <ImageBanners src = {choices}/>
+          <TextOverlay>
+                  <Text> Make A Choice</Text>
+          </TextOverlay>
+        </TextAndImage>
+        </Link>
     </>
   )
 }
