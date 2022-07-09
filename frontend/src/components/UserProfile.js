@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 
 
-const UserProfile = ({profile,}) => {
+const UserProfile = ({profile}) => {
   return (
     <div>
      <h1> {profile.name}</h1>
