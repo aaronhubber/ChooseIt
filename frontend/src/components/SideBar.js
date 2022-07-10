@@ -5,6 +5,11 @@ import { FaHome } from 'react-icons/fa';
 import {IoPersonCircle } from 'react-icons/io5';
 import {ImExit} from 'react-icons/im'
 
+const MainBar = styled.div`
+border-style:solid;
+border-width: 1px;
+border-color:black
+position:absolute;`
 
 const List = styled.ul`
  list-style:none;
@@ -16,7 +21,7 @@ const SideBar = () => {
 
   return (
     <>
-    <div>
+    <MainBar>
       <List>
         <li>
         <Link style={{ textDecoration: "none" }} to="/">
@@ -34,7 +39,7 @@ const SideBar = () => {
         </Link>
         </li>
       </List>
-    </div>
+    </MainBar>
     </>
   )
 }

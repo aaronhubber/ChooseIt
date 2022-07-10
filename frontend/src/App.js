@@ -8,7 +8,10 @@ import UserProfile from './components/UserProfile';
 import ChoiceHomeContainer from './containers/ChoiceHomeContainer';
 import WorkshopSelectionContainer from './containers/WorkshopSelectionContainer';
 import EmotionSelectionContainer from './containers/EmotionSelectionContainer';
+import styled from 'styled-components';
 
+const MainContainer = styled.div`
+`
 
 function App() {
 
@@ -37,7 +40,7 @@ function App() {
 
 
   return (
-    <div>
+    <MainContainer>
     <Router>
         <Routes>
 
@@ -70,7 +73,7 @@ function App() {
 
         </Routes>
     </Router>
-    </div>
+    </MainContainer>
   );
 }
 

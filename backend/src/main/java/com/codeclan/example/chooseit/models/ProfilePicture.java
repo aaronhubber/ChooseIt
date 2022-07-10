@@ -21,11 +21,11 @@ public class ProfilePicture {
     private String contentType;
 
     @Column(name = "profilepicture")
-    @JsonManagedReference //Forward looking
+//    @JsonManagedReference //Forward looking
     @Lob
     private byte[] picture;
 
-    @JsonBackReference
+//    @JsonBackReference
     @OneToOne(mappedBy = "profilepicture")
     private Profile profile;
 

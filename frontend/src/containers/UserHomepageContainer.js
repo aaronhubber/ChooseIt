@@ -16,7 +16,7 @@ const TextAndImage = styled.div`
   position: relative;
   margin-top:0.5vw;
   &:hover{
-    transform:scale(1.1);
+    transform:scaleY(1.1);
   }
 `;
 
@@ -35,11 +35,13 @@ const NavFlex = styled.div`
 position: sticky;
 top: 0;
 width: 20% ;
+position: relative;
 `;
 
 const FlexBox = styled.div`
 display: flex;
-flex-direction:row
+flex-direction:row;
+background-image: url("/Users/jasminemills/CodeClan_work/final_project/chooseit/ChooseIt/frontend/src/assets/images/background.png");
 `;
 
 const UserHomepageContainer = () => {
