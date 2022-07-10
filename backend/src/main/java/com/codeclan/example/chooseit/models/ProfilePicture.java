@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name ="profilepictures")
-@JsonIgnoreProperties({"profile"})
+@JsonIgnoreProperties({"userProfile"})
 public class ProfilePicture {
 
     @Id
@@ -21,10 +21,11 @@ public class ProfilePicture {
     private String contentType;
 
     @Column(name = "profilepicture")
-   // @JsonManagedReference //Forward looking
+    @JsonManagedReference //Forward looking
     @Lob
     private byte[] picture;
 
+    @JsonBackReference
     @OneToOne(mappedBy = "profilepicture")
     private Profile profile;
 

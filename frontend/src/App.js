@@ -31,31 +31,43 @@ function App() {
   }, []);
 
 
-  // useEffect(() => {
-  //   getProfilePics().then((res) => setAllProfilePics(res));
-  // }, []);
-
-  const selectProfile = (profile) => {
-    setCurrentProfile(profile);
+  const selectProfile = (currentProfile) => {
+    setCurrentProfile(currentProfile);
   };
 
-// const getUsers = () => {
-//     fetch("http://localhost:8080/userprofiles")
-//     .then((res) => res.json())
-//     .then(allProfiles => setAllProfiles(allProfiles));
-//     // .catch(error => console.error);
-// };
 
   return (
     <div>
     <Router>
         <Routes>
-          <Route path="/" element={<UserHomepageContainer/>}/>
-          <Route path = "/selectprofile" element={<UserProfilesSelectContainer allProfiles = {allProfiles}/>}/>
-          <Route path="/workshopchoice" element={<WorkshopSelectionContainer allWorkshopPictures = {allWorkshopPictures}/>}/>
-          <Route path="/todo" element={<ScheduleContainer/>}/>
-          <Route path="/whatchoice" element={<ChoiceHomeContainer/>}/>
-          {/* <Route path="/emotionchoice" element={<EmotionSelectionContainer/>}/> */}
+
+          <Route path="/" element={ 
+            currentProfile? 
+            (<UserHomepageContainer currentProfile = {currentProfile} />):
+            (<UserProfilesSelectContainer 
+              allProfiles = {allProfiles} 
+              selectProfile = {selectProfile}/>)}/>
+
+            <Route path="/workshopchoice" element=
+            {<WorkshopSelectionContainer 
+            allWorkshopPictures = {allWorkshopPictures}
+            currentProfile = {currentProfile}
+            />}/>
+
+            <Route path="/todo" element={
+            <ScheduleContainer 
+            currentProfile = {currentProfile}/>}/>
+
+            <Route path="/whatchoice" element={
+            <ChoiceHomeContainer
+            currentProfile = {currentProfile}
+            />}/>
+
+            {/* <Route path="/emotionchoice" element={
+            <EmotionSelectionContainer
+            currentProfile = {currentProfile}
+            />}/> */}
+
         </Routes>
     </Router>
     </div>
