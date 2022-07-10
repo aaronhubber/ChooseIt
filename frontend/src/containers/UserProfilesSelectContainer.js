@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react'
 import UserProfile from '../components/UserProfile';
 import styled from 'styled-components'
 import img from '../assets/images/background.png';
+import AddUser from '../components/AddUser';
+
 
 
 
@@ -44,6 +46,16 @@ const NewUser = styled.img`
 
 const UserProfilesSelectContainer = ({allProfiles, selectProfile}) => {
 
+  const [newUserForm, setNewUserForm] = useState(false);
+
+  const handleNewProfile = () =>{
+    if (newUserForm == false){
+      setNewUserForm(true)
+    }
+
+  } 
+
+
   const profileTiles = allProfiles.map((profile, index) => {
         return <UserProfile profile={profile} selectProfile = {selectProfile}key={index} />;
       });
@@ -56,9 +68,10 @@ const UserProfilesSelectContainer = ({allProfiles, selectProfile}) => {
     <ProfileFlex>
     {profileTiles} 
     <EmptyTile>
-     <NewUser width = "200" src = "https://www.enterpriseresearch.ac.uk/wp-content/uploads/2014/08/Add-Person-Person-Add-Icon-2646097.png"/>
+     <NewUser width = "200" src = "https://www.enterpriseresearch.ac.uk/wp-content/uploads/2014/08/Add-Person-Person-Add-Icon-2646097.png" onClick = {handleNewProfile}/>
      <Text>Add User</Text>
     </EmptyTile>
+    <AddUser/>
     </ProfileFlex>
     </Body>
     </>

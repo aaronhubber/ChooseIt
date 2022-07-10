@@ -19,7 +19,7 @@ const ProfilePic = styled.img`
 border-style:solid;
 border-width:2px;
 border-color:grey;
-width: 15w;
+width: 15vw;
 `
 const ProfileName = styled.h2`
 font-family:Arial, Helvetica, sans-serif;
