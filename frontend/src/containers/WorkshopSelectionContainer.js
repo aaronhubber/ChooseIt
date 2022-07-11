@@ -1,16 +1,20 @@
 import React, {useState, useEffect} from 'react'
 import WorkshopPicture from '../components/WorkshopPicture';
-import {getRandomWorkshopPicture} from '../services/services.js';
+import WorkshopPicture2 from '../components/WorkshopPicture2';
+import {getRandomWorkshopPicture, getRandomWorkshopPicture2} from '../services/services.js';
 
 
 
-const WorkshopSelectionContainer = ({allWorkshopPictures}) => {
+const WorkshopSelectionContainer = () => {
 
-  const [randomWorkshop, setRandomWorkshop] = useState();
+  const [randomWorkshop, setRandomWorkshop] = useState(null);
+  const [randomWorkshop2, setRandomWorkshop2] = useState(null);
 
   useEffect(() => {
     getRandomWorkshopPicture().then((res) => setRandomWorkshop(res));
+    getRandomWorkshopPicture2().then((res) => setRandomWorkshop2(res));
   }, []);
+
 
   // const randomWorkshopPicture = (()=>{
   //  return getRandomWorkshopPicture
@@ -31,6 +35,7 @@ const WorkshopSelectionContainer = ({allWorkshopPictures}) => {
     <>
     <div>
       <WorkshopPicture randomWorkshop={randomWorkshop}/> 
+      <WorkshopPicture2 randomWorkshop2={randomWorkshop2}/>
     </div>
     </>
   )

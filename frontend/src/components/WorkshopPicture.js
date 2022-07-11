@@ -1,15 +1,22 @@
 import React from 'react'
 
-const WorkshopPicture = ({randomWorkshop}) => {
+const WorkshopPicture = ({randomWorkshop, }) => {
+  if (!randomWorkshop) return null;
 
-  // let byteSource = "data:image/png;base64," + randomWorkshopPicture.picture
+
+
+  let byteSource = "data:image/png;base64," + randomWorkshop.picture
+
+
+
+
 
   return (
     <>
     <div>
-    {/* <h3>{randomWorkshopPicture.title}</h3> */}
+    <h3>{randomWorkshop.title}</h3>
     <h3>{randomWorkshop.description}</h3>
-      {/* <img src = {byteSource}/> */}
+      <img src = {byteSource}/>
     </div>
     </>
   )
