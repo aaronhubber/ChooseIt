@@ -4,6 +4,7 @@ import schedule from "../assets/images/schedule2.png"
 import choices from "../assets/images/choices.png"
 import countdown from "../assets/images/countdown.png"
 import {Link } from "react-router-dom";
+import SideBar from '../components/SideBar';
 
 const ImageBanners = styled.img`
 width: 100%;
@@ -15,7 +16,7 @@ const TextAndImage = styled.div`
   position: relative;
   margin-top:0.5vw;
   &:hover{
-    transform:scale(1.1);
+    transform:scaleY(1.1);
   }
 `;
 
@@ -30,9 +31,27 @@ const Text = styled.h3`
   font-size: 3vw;
 `;
 
+const NavFlex = styled.div`
+position: sticky;
+top: 0;
+width: 20% ;
+position: relative;
+`;
+
+const FlexBox = styled.div`
+display: flex;
+flex-direction:row;
+background-image: url("/Users/jasminemills/CodeClan_work/final_project/chooseit/ChooseIt/frontend/src/assets/images/background.png");
+`;
+
 const UserHomepageContainer = () => {
   return (
     <>
+    <FlexBox>
+    <NavFlex>
+      <SideBar/>
+    </NavFlex>
+    <div>
     <Link style={{ textDecoration: "none" }} to="/todo">
     <TextAndImage>
       <ImageBanners src = {schedule}/>
@@ -57,6 +76,8 @@ const UserHomepageContainer = () => {
           </TextOverlay>
         </TextAndImage>
         </Link>
+    </div>
+    </FlexBox>
     </>
   )
 }

@@ -2,13 +2,17 @@ import React, {useEffect, useState} from 'react';
 import UserHomepageContainer from './containers/UserHomepageContainer';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import UserProfilesSelectContainer from './containers/UserProfilesSelectContainer';
-import { getProfiles, getImages} from './services/services';
+import { getProfiles, getImages, postUser} from './services/services';
 import ScheduleContainer from './containers/ScheduleContainer'
 import UserProfile from './components/UserProfile';
 import ChoiceHomeContainer from './containers/ChoiceHomeContainer';
 import WorkshopSelectionContainer from './containers/WorkshopSelectionContainer';
 import EmotionSelectionContainer from './containers/EmotionSelectionContainer';
+import styled from 'styled-components';
 
+
+const MainContainer = styled.div`
+`
 
 function App() {
 
@@ -31,34 +35,56 @@ function App() {
   }, []);
 
 
-  // useEffect(() => {
-  //   getProfilePics().then((res) => setAllProfilePics(res));
-  // }, []);
-
-  const selectProfile = (profile) => {
-    setCurrentProfile(profile);
+  const selectProfile = (currentProfile) => {
+    setCurrentProfile(currentProfile);
   };
 
-// const getUsers = () => {
-//     fetch("http://localhost:8080/userprofiles")
-//     .then((res) => res.json())
-//     .then(allProfiles => setAllProfiles(allProfiles));
-//     // .catch(error => console.error);
-// };
+  const addProfile = (profile) => {
+    postUser(profile).then((profileWithID) => {
+      const temp = [...allProfiles];
+      temp.push(profileWithID);
+      setAllProfiles(temp);
+    });
+  };
+
 
   return (
-    <div>
+    <MainContainer>
     <Router>
         <Routes>
-          <Route path="/" element={<UserHomepageContainer/>}/>
-          <Route path = "/selectprofile" element={<UserProfilesSelectContainer allProfiles = {allProfiles}/>}/>
-          <Route path="/workshopchoice" element={<WorkshopSelectionContainer allWorkshopPictures = {allWorkshopPictures}/>}/>
-          <Route path="/todo" element={<ScheduleContainer/>}/>
-          <Route path="/whatchoice" element={<ChoiceHomeContainer/>}/>
-          {/* <Route path="/emotionchoice" element={<EmotionSelectionContainer/>}/> */}
+
+          <Route path="/" element={ 
+            currentProfile? 
+            (<UserHomepageContainer currentProfile = {currentProfile} />):
+            (<UserProfilesSelectContainer 
+              allProfiles = {allProfiles} 
+              selectProfile = {selectProfile}
+              addProfile = {addProfile}
+              />)}/>
+
+            <Route path="/workshopchoice" element=
+            {<WorkshopSelectionContainer 
+            allWorkshopPictures = {allWorkshopPictures}
+            currentProfile = {currentProfile}
+            />}/>
+
+            <Route path="/todo" element={
+            <ScheduleContainer 
+            currentProfile = {currentProfile}/>}/>
+
+            <Route path="/whatchoice" element={
+            <ChoiceHomeContainer
+            currentProfile = {currentProfile}
+            />}/>
+
+            {/* <Route path="/emotionchoice" element={
+            <EmotionSelectionContainer
+            currentProfile = {currentProfile}
+            />}/> */}
+
         </Routes>
     </Router>
-    </div>
+    </MainContainer>
   );
 }
 
