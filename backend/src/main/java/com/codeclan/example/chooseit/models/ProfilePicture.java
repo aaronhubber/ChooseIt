@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name ="profilepictures")
-@JsonIgnoreProperties({"profile"})
+@JsonIgnoreProperties({"userProfile"})
 public class ProfilePicture {
 
     @Id

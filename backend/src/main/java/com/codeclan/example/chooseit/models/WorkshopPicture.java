@@ -2,6 +2,7 @@ package com.codeclan.example.chooseit.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 
@@ -26,6 +27,7 @@ public class WorkshopPicture {
     @Column(name = "workshop_picture")
 //    @JsonBackReference //Forward looking
     @Lob
+//    @Type(type = "org.hibernate.type.ImageType")
     private byte[] picture;
 
 
