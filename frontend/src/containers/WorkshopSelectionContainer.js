@@ -8,7 +8,6 @@ const WorkshopSelectionContainer = ({allWorkshopPictures}) => {
 
   const [randomWorkshop, setRandomWorkshop] = useState();
 
-
   useEffect(() => {
     getRandomWorkshopPicture().then((res) => setRandomWorkshop(res));
   }, []);
