@@ -17,10 +17,16 @@ public interface WorkshopPictureRepository extends JpaRepository<WorkshopPicture
 
 //    @Query("SELECT * FROM workshop_pictures ORDER BY random() LIMIT 1")
 //    WorkshopPicture findByGenre(Genre genre);
+
 //    @Transactional
 //    @Query("SELECT w FROM WorkshopPicture w order by function('RAND')")
 //    List<WorkshopPicture> findRandomWorkshopPicture(Genre genre);
 //
+    @Transactional
+    @Query(value = "SELECT * FROM workshop_pictures WHERE genre = ?1 ORDER BY RANDOM() LIMIT 1", nativeQuery = true)
+    WorkshopPicture findRandom(Long genre);
+
+
 
 
 

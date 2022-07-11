@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.security.SecureRandom;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -33,13 +35,26 @@ public class WorkshopPictureController {
 
 
     @GetMapping(value = "/workshoppictures/{id}")
-    public ResponseEntity<Optional<WorkshopPicture>> getUserProfiles(@PathVariable(name = "id") Long id){
+    public ResponseEntity<Optional<WorkshopPicture>> getWorkshopPictureById(@PathVariable(name = "id") Long id){
         return new ResponseEntity<>(workshopPictureRepository.findById(id), HttpStatus.OK);
     }
+
+    @GetMapping(value = "/randomworkshoppicturetest")
+    public ResponseEntity<WorkshopPicture> getRandomWorkshopPicture(){
+        return new ResponseEntity(workshopPictureRepository.findRandom(1L), HttpStatus.OK);
+    }
+////
+//    @GetMapping(value = "/randomworkshoppicture")
+//       public List<WorkshopPicture> getRandomWorkshop(List<WorkshopPicture> pictures, int numberOfPictures) {
+//        List<WorkshopPicture> randomPictures = new ArrayList<>();
+//        List<WorkshopPicture> copy = new ArrayList<>(pictures);
 //
-//    @GetMapping(value = "/randomworkshopimage/{genre}")
-//    public ResponseEntity<List<WorkshopPicture>> getARandomWorkshopPicture(@PathVariable Genre genre) {
-//        return new ResponseEntity<>(workshopPictureRepository.findRandomWorkshopPicture(genre), HttpStatus.OK);
+//        SecureRandom rand = new SecureRandom();
+//        for (int i = 0; i < Math.min(numberOfPictures, pictures.size()); i++) {
+//            randomPictures.add( copy.remove( rand.nextInt( copy.size() ) ));
+//        }
+//
+//        return randomPictures;
 //    }
 
 
