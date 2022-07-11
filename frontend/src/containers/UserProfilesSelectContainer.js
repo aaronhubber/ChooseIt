@@ -3,6 +3,7 @@ import UserProfile from '../components/UserProfile';
 import styled from 'styled-components'
 import img from '../assets/images/background.png';
 import AddUser from '../components/AddUser';
+import EmptyTile from '../components/EmptyTile';
 
 
 
@@ -18,15 +19,6 @@ flex-wrap: wrap;
 flex-direction:row;
 padding-top:5vw;
  `
-
-const EmptyTile = styled.div`
-border-style:solid;
-border-width:2px;
-border-color:grey;
-padding: 2%;
-margin:2%;
-background-color:white ;
-`
 
 const ProfilePic = styled.img`
 border-style:solid;
@@ -44,16 +36,13 @@ const NewUser = styled.img`
     transform:scale(1.1);}
 `;
 
-const UserProfilesSelectContainer = ({allProfiles, selectProfile}) => {
+const UserProfilesSelectContainer = ({allProfiles, selectProfile, addProfile}) => {
 
   const [newUserForm, setNewUserForm] = useState(false);
 
   const handleNewProfile = () =>{
-    if (newUserForm == false){
       setNewUserForm(true)
     }
-
-  } 
 
 
   const profileTiles = allProfiles.map((profile, index) => {
@@ -67,11 +56,8 @@ const UserProfilesSelectContainer = ({allProfiles, selectProfile}) => {
     <Body>
     <ProfileFlex>
     {profileTiles} 
-    <EmptyTile>
-     <NewUser width = "200" src = "https://www.enterpriseresearch.ac.uk/wp-content/uploads/2014/08/Add-Person-Person-Add-Icon-2646097.png" onClick = {handleNewProfile}/>
-     <Text>Add User</Text>
-    </EmptyTile>
-    <AddUser/>
+    {/* {newUserForm==false?<EmptyTile onClick = {handleNewProfile}/> :<AddUser/>} */}
+    <AddUser addProfile = {addProfile}/>
     </ProfileFlex>
     </Body>
     </>

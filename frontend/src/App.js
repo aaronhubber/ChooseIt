@@ -2,13 +2,14 @@ import React, {useEffect, useState} from 'react';
 import UserHomepageContainer from './containers/UserHomepageContainer';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import UserProfilesSelectContainer from './containers/UserProfilesSelectContainer';
-import { getProfiles, getImages} from './services/services';
+import { getProfiles, getImages, postUser} from './services/services';
 import ScheduleContainer from './containers/ScheduleContainer'
 import UserProfile from './components/UserProfile';
 import ChoiceHomeContainer from './containers/ChoiceHomeContainer';
 import WorkshopSelectionContainer from './containers/WorkshopSelectionContainer';
 import EmotionSelectionContainer from './containers/EmotionSelectionContainer';
 import styled from 'styled-components';
+
 
 const MainContainer = styled.div`
 `
@@ -38,6 +39,14 @@ function App() {
     setCurrentProfile(currentProfile);
   };
 
+  const addProfile = (profile) => {
+    postUser(profile).then((profileWithID) => {
+      const temp = [...allProfiles];
+      temp.push(profileWithID);
+      setAllProfiles(temp);
+    });
+  };
+
 
   return (
     <MainContainer>
@@ -49,7 +58,9 @@ function App() {
             (<UserHomepageContainer currentProfile = {currentProfile} />):
             (<UserProfilesSelectContainer 
               allProfiles = {allProfiles} 
-              selectProfile = {selectProfile}/>)}/>
+              selectProfile = {selectProfile}
+              addProfile = {addProfile}
+              />)}/>
 
             <Route path="/workshopchoice" element=
             {<WorkshopSelectionContainer 

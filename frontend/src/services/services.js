@@ -20,6 +20,25 @@ export const getImage2 = () => {
     .then((res) => res.json())
 };
 
+export const postUser = (data, file) => {
+
+    let profilesURL = "http://localhost:8080/userprofiles"
+    let body = new FormData();
+    
+    body.append('picture',file)
+    body.append('name', data.name)
+    body.append('assistanceLevel', data.assistanceLevel)
+
+    if (data.name && data.assistanceLevel && data.picture) {
+      return fetch(profilesURL, {
+        method: "POST",
+        body: body,
+        // headers: { "Content-Type": "multipart/form-data" },
+      }).then((res) => res.json());
+    } else {
+      alert("Name, Assistance Level and Picture Required");
+    }
+  };
 
 
 // export const getProfilePics = () => {
