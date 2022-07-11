@@ -42,8 +42,8 @@ function App() {
     setCurrentProfile(currentProfile);
   };
 
-  const addProfile = (profile) => {
-    postUser(profile).then((profileWithID) => {
+  const addProfile = (file,data) => {
+    postUser(file, data).then((profileWithID) => {
       const temp = [...allProfiles];
       temp.push(profileWithID);
       setAllProfiles(temp);

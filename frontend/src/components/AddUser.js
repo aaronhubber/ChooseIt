@@ -84,9 +84,9 @@ const AddUser = ({addProfile}) => {
         handlePictureChange(event)
      };
 
-     const handleSubmit = (event) => {
+      const handleSubmit = (event) => {
         event.preventDefault();
-        addProfile({ name: name, assistanceLevel: assistanceLevel, picture: picture});
+        addProfile(img,{ name: name, assistanceLevel: assistanceLevel},);
         setName("");
         setAssistanceLevel("");
         event.target.reset();

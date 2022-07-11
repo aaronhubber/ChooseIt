@@ -30,25 +30,24 @@ export const getRandomWorkshopPicture2 = ()=>{
   .then((res)=> res.json())
 }
 
-export const postUser = (data, file) => {
+export const postUser = (file, data) => {
 
-    let profilesURL = "http://localhost:8080/userprofiles"
-    let body = new FormData();
-    
-    body.append('picture',file)
-    body.append('name', data.name)
-    body.append('assistanceLevel', data.assistanceLevel)
+  let profilesURL = "http://localhost:8080/userprofiles"
+  let body = new FormData();
+  body.append('inputProfile', new Blob([JSON.stringify(data)], {
+      type: "application/json"
+  }));
+  body.append('files',file)
 
-    if (data.name && data.assistanceLevel && data.picture) {
-      return fetch(profilesURL, {
-        method: "POST",
-        body: body,
-        // headers: { "Content-Type": "multipart/form-data" },
-      }).then((res) => res.json());
-    } else {
-      alert("Name, Assistance Level and Picture Required");
-    }
-  };
+  // body.append('assistanceLevel', data.assistanceLevel)
+
+    return fetch(profilesURL, {
+      method: "POST",
+      body: body
+      // headers: { "Content-Type": "multipart/form-data" },
+    }).then((res) => res.json());
+  
+};
 
 
 // export const getProfilePics = () => {
