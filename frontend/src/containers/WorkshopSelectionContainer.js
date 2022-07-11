@@ -30,10 +30,13 @@ const WorkshopSelectionContainer = () => {
   const [choice1, setChoice1] = useState(null)
   const [choice2, setChoice2] = useState(null)
 
-  // useEffect(() => {
-  //   getRandomWorkshopPicture().then((res) => setRandomWorkshop(res));
-  //   getRandomWorkshopPicture2().then((res) => setRandomWorkshop2(res));
-  // }, [favoriteWorkshop]);
+
+  const runForm = () => {
+    getRandomWorkshopPicture(choice1).then((res) => setRandomWorkshop(res));
+    getRandomWorkshopPicture2(choice2).then((res) => setRandomWorkshop2(res));}
+
+    useEffect(() => {runForm()
+}, [favoriteWorkshop]);
 
 
   const onFavouriteClick = (banana) => {
@@ -47,7 +50,7 @@ const WorkshopSelectionContainer = () => {
     if (!isOnList) { 
     copyList.push(banana)
     }
-
+    runForm(choice1,choice2)
     setFavoriteWorkshop(copyList)
     
 }
@@ -61,9 +64,7 @@ const WorkshopSelectionContainer = () => {
 
     const handleSubmit = (event) => {
       event.preventDefault();
-      getRandomWorkshopPicture(choice1).then((res) => setRandomWorkshop(res));
-      console.log(choice1)
-      getRandomWorkshopPicture2(choice2).then((res) => setRandomWorkshop2(res));
+      runForm(choice1, choice2)
     };
 
   // const randomWorkshopPicture = (()=>{
@@ -168,7 +169,7 @@ const WorkshopSelectionContainer = () => {
             <img src={gardening} height="70" width="70" />
           </label>
         </Workshop>
-        <InputSubmit type="submit" value="submit" />
+        <InputSubmit type="submit" value="submit" text = "NEXT!"/>
       </FormContainer>
       <WorkshopPicture randomWorkshop={randomWorkshop} onFavouriteClick={onFavouriteClick}/> 
       <WorkshopPicture2 randomWorkshop2={randomWorkshop2}/>
