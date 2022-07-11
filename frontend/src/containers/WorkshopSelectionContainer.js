@@ -30,10 +30,10 @@ const WorkshopSelectionContainer = () => {
   const [choice1, setChoice1] = useState(null)
   const [choice2, setChoice2] = useState(null)
 
-  useEffect(() => {
-    getRandomWorkshopPicture().then((res) => setRandomWorkshop(res));
-    getRandomWorkshopPicture2().then((res) => setRandomWorkshop2(res));
-  }, [favoriteWorkshop]);
+  // useEffect(() => {
+  //   getRandomWorkshopPicture().then((res) => setRandomWorkshop(res));
+  //   getRandomWorkshopPicture2().then((res) => setRandomWorkshop2(res));
+  // }, [favoriteWorkshop]);
 
 
   const onFavouriteClick = (banana) => {
@@ -59,8 +59,11 @@ const WorkshopSelectionContainer = () => {
       setChoice2(event.target.value);
     };
 
-    const handleSubmit = () => {
-      getRandomWorkshopPicture();
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      getRandomWorkshopPicture(choice1).then((res) => setRandomWorkshop(res));
+      console.log(choice1)
+      getRandomWorkshopPicture2(choice2).then((res) => setRandomWorkshop2(res));
     };
 
   // const randomWorkshopPicture = (()=>{
@@ -81,7 +84,7 @@ const WorkshopSelectionContainer = () => {
 
     <>
     <div>
-    <FormContainer onSubmit={handleSubmit}>
+    <FormContainer method = "POST" onSubmit={handleSubmit}>
         <Label>Choose your Workshop</Label>
         <Workshop>
           <label>
@@ -130,7 +133,7 @@ const WorkshopSelectionContainer = () => {
               type="radio"
               name="workshop2"
               value="1"
-              onChange={handleChoice1Change}
+              onChange={handleChoice2Change}
             />
             <img src={music} height="70" width="70" />
           </label>
@@ -140,7 +143,7 @@ const WorkshopSelectionContainer = () => {
               type="radio"
               name="workshop2"
               value="3"
-              onChange={handleChoice1Change}
+              onChange={handleChoice2Change}
             />
             <img src={cooking} height="70" width="70" />
           </label>
@@ -150,7 +153,7 @@ const WorkshopSelectionContainer = () => {
               type="radio"
               name="workshop2"
               value="2"
-              onChange={handleChoice1Change}
+              onChange={handleChoice2Change}
             />
             <img src={art} height="70" width="70" />
           </label>
@@ -160,7 +163,7 @@ const WorkshopSelectionContainer = () => {
               type="radio"
               name="workshop2"
               value="0"
-              onChange={handleChoice1Change}
+              onChange={handleChoice2Change}
             />
             <img src={gardening} height="70" width="70" />
           </label>

@@ -20,13 +20,13 @@ export const getImage2 = () => {
     .then((res) => res.json())
 };
 
-export const getRandomWorkshopPicture = ()=>{
-  return fetch ("http://localhost:8080/randomworkshoppicture")
+export const getRandomWorkshopPicture = (genre)=>{
+  return fetch ("http://localhost:8080/randomworkshoppicture/" + genre)
   .then((res)=> res.json())
 }
 
-export const getRandomWorkshopPicture2 = ()=>{
-  return fetch ("http://localhost:8080/randomworkshoppicture")
+export const getRandomWorkshopPicture2 = (genre)=>{
+  return fetch ("http://localhost:8080/randomworkshoppicture/" + genre)
   .then((res)=> res.json())
 }
 

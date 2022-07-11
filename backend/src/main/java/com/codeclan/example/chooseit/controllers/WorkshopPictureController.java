@@ -43,6 +43,11 @@ public class WorkshopPictureController {
     public ResponseEntity<WorkshopPicture> getRandomWorkshopPicture(){
         return new ResponseEntity(workshopPictureRepository.findRandom(1L), HttpStatus.OK);
     }
+
+    @GetMapping(value = "/randomworkshoppicture/{genre}")
+    public ResponseEntity<WorkshopPicture> getRandomWorkshopPictureByGenre(@PathVariable(name = "genre")Long genre){
+        return new ResponseEntity(workshopPictureRepository.findRandom(genre), HttpStatus.OK);
+    }
 ////
 //    @GetMapping(value = "/randomworkshoppicture")
 //       public List<WorkshopPicture> getRandomWorkshop(List<WorkshopPicture> pictures, int numberOfPictures) {
