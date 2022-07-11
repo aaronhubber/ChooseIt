@@ -80,10 +80,10 @@ function App() {
             currentProfile = {currentProfile}
             />}/>
 
-            {/* <Route path="/emotionchoice" element={
+            <Route path="/emotionchoice" element={
             <EmotionSelectionContainer
             currentProfile = {currentProfile}
-            />}/> */}
+            />}/>
 
         </Routes>
     </Router>

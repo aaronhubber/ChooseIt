@@ -30,6 +30,11 @@ export const getRandomWorkshopPicture2 = (genre)=>{
   .then((res)=> res.json())
 }
 
+export const getRandomEmotionPicture = ()=>{
+  return fetch ("http://localhost:8080/randomemotionpicture/")
+  .then((res)=> res.json())
+}
+
 export const postUser = (file, data) => {
 
   let profilesURL = "http://localhost:8080/userprofiles"
