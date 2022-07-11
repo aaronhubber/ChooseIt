@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import FavoriteWorkshop from '../components/FavoriteWorkshop';
 import WorkshopPicture from '../components/WorkshopPicture';
 import WorkshopPicture2 from '../components/WorkshopPicture2';
 import {getRandomWorkshopPicture, getRandomWorkshopPicture2} from '../services/services.js';
@@ -9,11 +10,29 @@ const WorkshopSelectionContainer = () => {
 
   const [randomWorkshop, setRandomWorkshop] = useState(null);
   const [randomWorkshop2, setRandomWorkshop2] = useState(null);
+  const [favoriteWorkshop, setFavoriteWorkshop] = useState([])
 
   useEffect(() => {
     getRandomWorkshopPicture().then((res) => setRandomWorkshop(res));
     getRandomWorkshopPicture2().then((res) => setRandomWorkshop2(res));
-  }, []);
+  }, [favoriteWorkshop]);
+
+
+  const onFavouriteClick = (banana) => {
+
+    const copyList = [... favoriteWorkshop]
+
+    const isOnList = copyList.some((workshop) => {
+        return workshop.id === banana.id
+    }) 
+
+    if (!isOnList) { 
+    copyList.push(banana)
+    }
+
+    setFavoriteWorkshop(copyList)
+    
+}
 
 
   // const randomWorkshopPicture = (()=>{
@@ -34,8 +53,9 @@ const WorkshopSelectionContainer = () => {
 
     <>
     <div>
-      <WorkshopPicture randomWorkshop={randomWorkshop}/> 
+      <WorkshopPicture randomWorkshop={randomWorkshop} onFavouriteClick={onFavouriteClick}/> 
       <WorkshopPicture2 randomWorkshop2={randomWorkshop2}/>
+      <FavoriteWorkshop favoriteWorkshop={favoriteWorkshop}/>
     </div>
     </>
   )

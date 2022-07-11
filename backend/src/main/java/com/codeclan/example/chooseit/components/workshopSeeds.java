@@ -80,21 +80,21 @@ public class workshopSeeds implements ApplicationRunner {
         ByteArrayOutputStream bos8 = new ByteArrayOutputStream();
         ImageIO.write(bImage8, "png", bos8 );
 
-        WorkshopPicture workshopPictureM5 = new WorkshopPicture(bos8.toByteArray(), Genre.MUSIC, "a young man playing a DHJ turntable" );
+        WorkshopPicture workshopPictureM5 = new WorkshopPicture(bos8.toByteArray(), Genre.MUSIC, "a young man playing a DJ turntable" );
         workshopPictureRepository.save(workshopPictureM5);
 
         BufferedImage bImage9 = ImageIO.read(new File("src/main/resources/assets/images/workshop/workshop/Garden.png"));
         ByteArrayOutputStream bos9 = new ByteArrayOutputStream();
         ImageIO.write(bImage9, "png", bos9 );
 
-        WorkshopPicture workshopPictureG4 = new WorkshopPicture(bos9.toByteArray(), Genre.MUSIC, "a small garden with a wooden shed" );
+        WorkshopPicture workshopPictureG4 = new WorkshopPicture(bos9.toByteArray(), Genre.GARDENING, "a small garden with a wooden shed" );
         workshopPictureRepository.save(workshopPictureG4);
 
         BufferedImage bImage10 = ImageIO.read(new File("src/main/resources/assets/images/workshop/workshop/Soil.png"));
         ByteArrayOutputStream bos10 = new ByteArrayOutputStream();
         ImageIO.write(bImage10, "png", bos10 );
 
-        WorkshopPicture workshopPictureG5 = new WorkshopPicture(bos10.toByteArray(), Genre.MUSIC, "a green box, full of soil with a garden tool" );
+        WorkshopPicture workshopPictureG5 = new WorkshopPicture(bos10.toByteArray(), Genre.GARDENING, "a green box, full of soil with a garden tool" );
         workshopPictureRepository.save(workshopPictureG5);
     }
 
