@@ -44,7 +44,7 @@ flex-direction:row;
 background-image: url("/Users/jasminemills/CodeClan_work/final_project/chooseit/ChooseIt/frontend/src/assets/images/background.png");
 `;
 
-const UserHomepageContainer = () => {
+const UserHomepageContainer = ({currentProfile}) => {
   return (
     <>
     <FlexBox>

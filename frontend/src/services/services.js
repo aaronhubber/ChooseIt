@@ -20,6 +20,11 @@ export const getImage2 = () => {
     .then((res) => res.json())
 };
 
+export const getRandomWorkshopPicture = ()=>{
+  return fetch ("http://localhost:8080/randomworkshoppicture")
+  .then((res)=> res.json())
+}
+
 export const postUser = (data, file) => {
 
     let profilesURL = "http://localhost:8080/userprofiles"

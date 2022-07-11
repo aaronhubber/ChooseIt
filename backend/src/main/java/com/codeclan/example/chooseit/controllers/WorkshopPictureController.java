@@ -39,7 +39,7 @@ public class WorkshopPictureController {
         return new ResponseEntity<>(workshopPictureRepository.findById(id), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/randomworkshoppicturetest")
+    @GetMapping(value = "/randomworkshoppicture")
     public ResponseEntity<WorkshopPicture> getRandomWorkshopPicture(){
         return new ResponseEntity(workshopPictureRepository.findRandom(1L), HttpStatus.OK);
     }
