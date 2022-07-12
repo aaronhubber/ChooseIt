@@ -1,80 +1,46 @@
 import React, {useState, useEffect} from 'react'
 import {getRandomEmotionPicture} from '../services/services.js';
 import EmotionPicture from '../components/EmotionPicture';
-import mainHappy from "../assets/images/MainHappy.png";
-import mainSad from "../assets/images/MainSad.png";
+import MyEmotion from '../components/MyEmotion';
 
 const EmotionSelectionContainer = () => {
 
-  const [emotion, setEmotion] = useState(null)
-  const [randomEmotion, setRandomEmotion] = useState
-  (null);
 
-
+  const [randomEmotion, setRandomEmotion] = useState(null);
+  const [myEmotion, setMyEmotion] = useState([])
 
   const runForm = () => {
-    getRandomEmotionPicture(emotion).then((res) => setRandomEmotion(res));
+    getRandomEmotionPicture().then((res) => setRandomEmotion(res));
 }
 
     useEffect(() => {runForm()
 }, []);
 
 
-//   const onFavouriteClick = (banana) => {
+  const onFavouriteClick = (banana) => {
+    const copyList = [... myEmotion]
+    const isOnList = copyList.some((workshop) => {
+        return workshop.id === banana.id
+    }) 
+    if (!isOnList) { 
+    copyList.push(banana)
+    }
+    setMyEmotion(copyList)
+}
 
-//     const copyList = [... favoriteWorkshop]
-
-//     const isOnList = copyList.some((workshop) => {
-//         return workshop.id === banana.id
-//     }) 
-
-//     if (!isOnList) { 
-//     copyList.push(banana)
-//     }
-//     runForm(choice1,choice2)
-//     setFavoriteWorkshop(copyList)
-    
-// }
-    const handleEmotionChange = (event) => {
-      setEmotion(event.target.value);
-    };
-
-
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      runForm(emotion)
-    };
+    const handleNext = () => {
+      getRandomEmotionPicture().then((res) => setRandomEmotion(res))
+  }
 
   return (
     <>
-    <form method = "POST" onSubmit={handleSubmit}>
-        <label>How are you feeling today?</label>
-        <div>
-          <label>
-            <input
-              type="radio"
-              name="workshop"
-              value="1"
-              onChange={handleEmotionChange}
-            />
-            <img src={mainHappy} height="70" width="70" />
-          </label>
-
-          <label>
-            <input
-              type="radio"
-              name="workshop"
-              value="3"
-              onChange={handleEmotionChange}
-            />
-            <img src={mainSad} height="70" width="70" />
-          </label>
-          </div>
-          </form>
-          <h2>Or Are You Feeling?</h2>
-          <EmotionPicture randomEmotion={randomEmotion} /> 
-          {/* TODO add button for next */}
-          </>
+    <h2>How am I feeling today?</h2>
+    <p>You can look through emotions below by clicking on the next button. If you find a picture that looks how you feel you can add it to your feelings with the other button. 
+    <p></p>Its ok to feel lots of things at the same time and you can add more than one. Also if you don't feel anything like the pictures then thats ok too, people feel things differently and you can talk to people about how you are feeling. </p>
+    <EmotionPicture randomEmotion={randomEmotion} handleNext={handleNext} onFavouriteClick={onFavouriteClick}/> 
+    <MyEmotion myEmotion={myEmotion}/>
+          
+    </>
   )
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const EmotionPicture = ({randomEmotion}) => {
+const EmotionPicture = ({randomEmotion, handleNext, onFavouriteClick}) => {
 
   if (!randomEmotion) return null;
 
@@ -8,10 +8,13 @@ const EmotionPicture = ({randomEmotion}) => {
 
   let byteSource = "data:image/png;base64," + randomEmotion.picture
 
-//   const handleFavouriteClick = () => {
-//     console.log(randomWorkshop)
-//     onFavouriteClick(randomWorkshop)
-// }
+  const handleFavouriteClick = () => {
+    onFavouriteClick(randomEmotion)
+}
+
+
+
+
 
   return (
     <>
@@ -19,7 +22,8 @@ const EmotionPicture = ({randomEmotion}) => {
     <h3>{randomEmotion.title}</h3>
     <h3>{randomEmotion.description}</h3>
       <img src = {byteSource} value={randomEmotion} />
-      {/* <button value={favoriteWorkshop} onClick={handleFavouriteClick} >Add Favourite</button> */}
+      <button onClick={handleNext} >Next</button>
+      <button onClick={handleFavouriteClick} >Add To My Feelings</button>
     </div>
     </>
   )
