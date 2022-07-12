@@ -49,6 +49,11 @@ public class EmotionPictureController {
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
+    @GetMapping(value = "/randomemotionpicture")
+    public ResponseEntity<EmotionPicture> getRandomEmotionPicture(){
+        return new ResponseEntity<>(emotionPictureRepository.findRandomEmotion(), HttpStatus.OK);
+    }
+
 }
 
 
