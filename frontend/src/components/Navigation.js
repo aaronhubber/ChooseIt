@@ -21,14 +21,19 @@ const LI = styled.li`
 list-style:none;
 `
 
-const Navigation = () => {
+const Navigation = ({signOutUser}) => {
+
+
+  const handleSignOut = () => {
+    signOutUser()
+  }
 
   return (
     <>
     <MainBar>
       <List>
         <LI>
-        <Link style={{ textDecoration: "none" }} to="/myhome">
+        <Link style={{ textDecoration: "none" }} to="/">
         <p> Home <FaHome/> </p>
         </Link>
         </LI>
@@ -38,9 +43,7 @@ const Navigation = () => {
         </Link>
         </LI>
         <LI>
-        <Link style={{ textDecoration: "none" }} to="/">
-        <p> SignOut <ImExit/> </p>
-        </Link>
+        <button onClick = {handleSignOut}> SignOut <ImExit/> </button>
         </LI>
       </List>
     </MainBar>

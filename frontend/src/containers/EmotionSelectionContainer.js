@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {getRandomEmotionPicture} from '../services/services.js';
 import EmotionPicture from '../components/EmotionPicture';
 import MyEmotion from '../components/MyEmotion';
+import Navigation from '../components/Navigation';
 
 const EmotionSelectionContainer = () => {
 
@@ -34,6 +35,7 @@ const EmotionSelectionContainer = () => {
 
   return (
     <>
+    <Navigation/>
     <h2>How am I feeling today?</h2>
     <p>You can look through emotions below by clicking on the next button. If you find a picture that looks how you feel you can add it to your feelings with the other button. 
     <p></p>Its ok to feel lots of things at the same time and you can add more than one. Also if you don't feel anything like the pictures then thats ok too, people feel things differently and you can talk to people about how you are feeling. </p>

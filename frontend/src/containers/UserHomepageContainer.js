@@ -41,11 +41,11 @@ flex-direction:column;
 background-image: url("/Users/jasminemills/CodeClan_work/final_project/chooseit/ChooseIt/frontend/src/assets/images/background.png");
 `;
 
-const UserHomepageContainer = ({currentProfile}) => {
+const UserHomepageContainer = ({signOutUser, currentProfile}) => {
   return (
     <>
     <FlexBox>
-      <Navigation/>
+      <Navigation signOutUser = {signOutUser}/>
     <div>
     <Link style={{ textDecoration: "none" }} to="/todo">
     <TextAndImage>

@@ -36,7 +36,9 @@ function App() {
   }, []);
 
 
-
+ const signOutUser = () => {
+  setCurrentProfile(null)
+ }
 
   const selectProfile = (currentProfile) => {
     setCurrentProfile(currentProfile);
@@ -55,10 +57,9 @@ function App() {
     <MainContainer>
     <Router>
         <Routes>
-
           <Route path="/" element={ 
             currentProfile? 
-            (<UserHomepageContainer currentProfile = {currentProfile} />):
+            (<UserHomepageContainer currentProfile = {currentProfile}  signOutUser = {signOutUser}/>):
             (<UserProfilesSelectContainer 
               allProfiles = {allProfiles} 
               selectProfile = {selectProfile}
