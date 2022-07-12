@@ -43,7 +43,9 @@ const Navigation = ({signOutUser}) => {
         </Link>
         </LI>
         <LI>
-        <button onClick = {handleSignOut}> SignOut <ImExit/> </button>
+        <Link onClick = {handleSignOut} style={{ textDecoration: "none" }} to="/">
+        <p> SignOut <ImExit/> </p>
+        </Link>
         </LI>
       </List>
     </MainBar>

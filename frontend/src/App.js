@@ -66,25 +66,25 @@ function App() {
               addProfile = {addProfile}
               />)}/>
 
-            <Route path="/workshopchoice" element=
-            {<WorkshopSelectionContainer 
+            <Route path="/workshopchoice" element={
+            <WorkshopSelectionContainer 
+            signOutUser = {signOutUser}
             allWorkshopPictures = {allWorkshopPictures}
-            currentProfile = {currentProfile}
-            />}/>
-
+            currentProfile = {currentProfile}/>}/>
+             
             <Route path="/todo" element={
             <ScheduleContainer 
+            signOutUser = {signOutUser}
+            currentProfile = {currentProfile}/>}/>
+        
+            <Route path="/whatchoice" element={
+           <ChoiceHomeContainer
+            signOutUser = {signOutUser}
             currentProfile = {currentProfile}/>}/>
 
-            <Route path="/whatchoice" element={
-            <ChoiceHomeContainer
-            currentProfile = {currentProfile}
-            />}/>
-
-            <Route path="/emotionchoice" element={
-            <EmotionSelectionContainer
-            currentProfile = {currentProfile}
-            />}/>
+            <Route path="/emotionchoice" element={<EmotionSelectionContainer
+            signOutUser = {signOutUser}
+            currentProfile = {currentProfile}/>}/>
 
         </Routes>
     </Router>
