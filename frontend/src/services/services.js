@@ -39,10 +39,9 @@ export const postUser = (file, data) => {
 
   let profilesURL = "http://localhost:8080/userprofiles"
   let body = new FormData();
-  body.append('inputProfile', new Blob([JSON.stringify(data)], {
-      type: "application/json"
-  }));
-  body.append('files',file)
+  body.append('name', data.name);
+  body.append('assistanceLevel', data.assistanceLevel);
+  body.append('file',file)
 
   // body.append('assistanceLevel', data.assistanceLevel)
 

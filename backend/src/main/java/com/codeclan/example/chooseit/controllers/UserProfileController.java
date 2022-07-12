@@ -52,10 +52,11 @@ public class UserProfileController {
 
 
     @RequestMapping(path = "/userprofiles", method = POST, consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
-    public Profile addUserTest(@RequestPart Profile inputProfile,
+    public Profile addUserTest(@RequestPart String name,
+                               @RequestPart String assistanceLevel,
                                @RequestPart MultipartFile file)
             throws IOException {
-        Profile profile = inputProfile;
+        Profile profile = new Profile(name, assistanceLevel);
         ProfilePicture picture = new ProfilePicture();
         picture.setDescription(file.getOriginalFilename());
         picture.setPicture(file.getBytes());

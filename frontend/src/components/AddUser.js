@@ -58,8 +58,8 @@ const AddUser = ({addProfile}) => {
 
     const [name, setName] = useState("");
     const [assistanceLevel, setAssistanceLevel] = useState("");
-    const [picture, setPicture] = useState(); //setting image to profile
-    const [img, setImg] = useState(); // viewing selected image
+    const [imageFile, setImageFile] = useState(); //setting image to profile
+    const [imgURL, setImgURL] = useState(); // viewing selected image
   
 
     const handleNameChange = (event) => {
@@ -70,23 +70,24 @@ const AddUser = ({addProfile}) => {
       setAssistanceLevel(event.target.value);
     };
   
-    const handlePictureChange = (event) => {
-      setPicture(event.target.value)
+    const handleImageFile = (e) => {
+      const [file] = e.target.files;
+      setImageFile(file)
     };
 
-    const handleImageChange = (e) => {
+    const handleImageURL = (e) => {
         const [file] = e.target.files;
-        setImg(URL.createObjectURL(file));
+        setImgURL(URL.createObjectURL(file));
       };
 
-    const handlePictureAndImage = (event) => {
-        handleImageChange(event);
-        handlePictureChange(event)
-     };
+    const handleImageFileAndImageURL = (event) => {
+        handleImageURL(event);
+        handleImageFile(event)
+    };
 
       const handleSubmit = (event) => {
         event.preventDefault();
-        addProfile(img,{ name: name, assistanceLevel: assistanceLevel},);
+        addProfile(imageFile,{ name, assistanceLevel},);
         setName("");
         setAssistanceLevel("");
         event.target.reset();
@@ -103,8 +104,8 @@ const AddUser = ({addProfile}) => {
             <FaCamera/>
             <br/>
             <hr/>
-            <FileButton id = "input" type = "file" onChange= {handlePictureAndImage}/>
-            <SelectedImage  width = "100vw" src={img} alt="" />
+            <FileButton id = "input" type = "file" onChange= {handleImageFileAndImageURL}/>
+            <SelectedImage  width = "100vw" src={imgURL} alt="" />
         </Label>
         <Input type="text" placeholder="Your Name" onChange={handleNameChange} required />
         <Input type="text" placeholder="Assistance Level" onChange={handleAssistanceChange} required />
