@@ -4,7 +4,7 @@ import schedule from "../assets/images/schedule2.png"
 import choices from "../assets/images/choices.png"
 import countdown from "../assets/images/countdown.png"
 import {Link } from "react-router-dom";
-import SideBar from '../components/SideBar';
+import Navigation from '../components/Navigation';
 
 const ImageBanners = styled.img`
 width: 100%;
@@ -16,7 +16,7 @@ const TextAndImage = styled.div`
   position: relative;
   margin-top:0.5vw;
   &:hover{
-    transform:scaleY(1.1);
+    transform:scale(1.1);
   }
 `;
 
@@ -32,15 +32,12 @@ const Text = styled.h3`
 `;
 
 const NavFlex = styled.div`
-position: sticky;
-top: 0;
-width: 20% ;
-position: relative;
+
 `;
 
 const FlexBox = styled.div`
 display: flex;
-flex-direction:row;
+flex-direction:column;
 background-image: url("/Users/jasminemills/CodeClan_work/final_project/chooseit/ChooseIt/frontend/src/assets/images/background.png");
 `;
 
@@ -48,9 +45,7 @@ const UserHomepageContainer = ({currentProfile}) => {
   return (
     <>
     <FlexBox>
-    <NavFlex>
-      <SideBar/>
-    </NavFlex>
+      <Navigation/>
     <div>
     <Link style={{ textDecoration: "none" }} to="/todo">
     <TextAndImage>

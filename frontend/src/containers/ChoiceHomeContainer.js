@@ -1,10 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Navigation from '../components/Navigation';
 
 
 const ChoiceHomeContainer = () => {
   return (
     <>
+     <Navigation/>
     <Link style={{ textDecoration: "none" }} to="/workshopchoice">
       <h2>WorkshopChoice</h2>
     </Link>

@@ -54,6 +54,11 @@ export const postUser = (file, data) => {
   
 };
 
+export const getActivityPictures = () => {
+  return fetch("http://localhost:8080/activitypictures")
+  .then((res) => res.json())
+};
+
 
 // export const getProfilePics = () => {
 //     async getImage()
