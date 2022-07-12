@@ -174,7 +174,7 @@ const WorkshopSelectionContainer = () => {
         <InputSubmit type="submit" value="submit" text = "NEXT!"/>
       </FormContainer>
       <WorkshopPicture randomWorkshop={randomWorkshop} onFavouriteClick={onFavouriteClick}/> 
-      <WorkshopPicture2 randomWorkshop2={randomWorkshop2}/>
+      <WorkshopPicture2 randomWorkshop2={randomWorkshop2} onFavouriteClick={onFavouriteClick}/>
       <FavoriteWorkshop favoriteWorkshop={favoriteWorkshop}/>
     </div>
     </>
