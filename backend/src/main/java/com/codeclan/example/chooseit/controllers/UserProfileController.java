@@ -16,6 +16,7 @@ import java.util.*;
 import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
+import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 
 @RestController
 public class UserProfileController {
@@ -39,17 +40,21 @@ public class UserProfileController {
 
     //Update old image with new one
     @PutMapping (value = "/updateuserprofilepdf/{id}")
+//    @RequestMapping(path = "/updateuserprofilepdf/{id}", method = PUT, consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
     public ResponseEntity<Profile> updateUserProfilePdf (@PathVariable(name = "id") Long id,
-                                  @RequestPart MultipartFile file)
+                                  @RequestBody MultipartFile file)
             throws IOException {
         Optional<Profile> oldRecord = userProfileRepository.findById(id);
+        Profile existingRecord = oldRecord.get();
         PdfModel pdfModel = new PdfModel();
         pdfModel.setContentType(file.getContentType());
         pdfModel.setData(file.getBytes());
         pdfModel.setDescription(file.getOriginalFilename());
-        oldRecord.get().addPdf(pdfModel);
-        userProfileRepository.save(oldRecord.get());
-        return new ResponseEntity(oldRecord,HttpStatus.OK);
+        existingRecord.addPdf(pdfModel);
+        pdfModel.setProfile(existingRecord);
+        userProfileRepository.save(existingRecord);
+        System.out.println(oldRecord.get().getPdfs().size());
+        return new ResponseEntity(existingRecord,HttpStatus.OK);
     }
 
 

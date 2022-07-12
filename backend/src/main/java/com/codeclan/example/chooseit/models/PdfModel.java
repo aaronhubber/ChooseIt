@@ -51,6 +51,13 @@ public class PdfModel {
         return description;
     }
 
+    public PdfModel(byte[] data, String description, String contentType, Profile profile) {
+        this.data = data;
+        this.description = description;
+        this.contentType = contentType;
+        this.profile = profile;
+    }
+
     public void setDescription(String description) {
         this.description = description;
     }
