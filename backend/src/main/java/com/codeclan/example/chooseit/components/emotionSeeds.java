@@ -77,7 +77,7 @@ public class emotionSeeds implements ApplicationRunner {
         EmotionPicture emotionPicture7 = new EmotionPicture("Scared", "Scared person with hands in front of mouth", bos7.toByteArray());
         emotionPictureRepository.save(emotionPicture7);
 
-        BufferedImage bImage8 = ImageIO.read(new File("src/main/resources/assets/images/emotions/Scared.png"));
+        BufferedImage bImage8 = ImageIO.read(new File("src/main/resources/assets/images/emotions/Shocked.png"));
         ByteArrayOutputStream bos8 = new ByteArrayOutputStream();
         ImageIO.write(bImage8, "png", bos8);
 
@@ -88,7 +88,7 @@ public class emotionSeeds implements ApplicationRunner {
         ByteArrayOutputStream bos9 = new ByteArrayOutputStream();
         ImageIO.write(bImage9, "png", bos9);
 
-        EmotionPicture emotionPicture9 = new EmotionPicture("Yawn", "Person with eyes closed, hand over mouth", bos9.toByteArray());
+        EmotionPicture emotionPicture9 = new EmotionPicture("Tired", "Person with eyes closed, hand over mouth", bos9.toByteArray());
         emotionPictureRepository.save(emotionPicture9);
 
     }

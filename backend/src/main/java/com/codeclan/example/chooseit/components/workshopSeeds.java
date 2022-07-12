@@ -96,6 +96,76 @@ public class workshopSeeds implements ApplicationRunner {
 
         WorkshopPicture workshopPictureG5 = new WorkshopPicture(bos10.toByteArray(), Genre.GARDENING, "a green box, full of soil with a garden tool" );
         workshopPictureRepository.save(workshopPictureG5);
+
+        BufferedImage bImage11 = ImageIO.read(new File("src/main/resources/assets/images/workshop/workshop/Art.png"));
+        ByteArrayOutputStream bos11 = new ByteArrayOutputStream();
+        ImageIO.write(bImage11, "png", bos11 );
+
+        WorkshopPicture workshopPictureA1 = new WorkshopPicture(bos11.toByteArray(), Genre.ART, "a pallet with paints and a paintbrush" );
+        workshopPictureRepository.save(workshopPictureA1);
+
+        BufferedImage bImage12 = ImageIO.read(new File("src/main/resources/assets/images/workshop/workshop/Artist.png"));
+        ByteArrayOutputStream bos12 = new ByteArrayOutputStream();
+        ImageIO.write(bImage12, "png", bos12 );
+
+        WorkshopPicture workshopPictureA2 = new WorkshopPicture(bos12.toByteArray(), Genre.ART, "a man painting a landscape on a canvas" );
+        workshopPictureRepository.save(workshopPictureA2);
+
+        BufferedImage bImage13 = ImageIO.read(new File("src/main/resources/assets/images/workshop/workshop/Graphic.png"));
+        ByteArrayOutputStream bos13 = new ByteArrayOutputStream();
+        ImageIO.write(bImage13, "png", bos13 );
+
+        WorkshopPicture workshopPictureA3 = new WorkshopPicture(bos13.toByteArray(), Genre.ART, "a drawing on a board" );
+        workshopPictureRepository.save(workshopPictureA3);
+
+        BufferedImage bImage14 = ImageIO.read(new File("src/main/resources/assets/images/workshop/workshop/Paint.png"));
+        ByteArrayOutputStream bos14 = new ByteArrayOutputStream();
+        ImageIO.write(bImage14, "png", bos14 );
+
+        WorkshopPicture workshopPictureA4 = new WorkshopPicture(bos14.toByteArray(), Genre.ART, "a boy painting on a pad of paper" );
+        workshopPictureRepository.save(workshopPictureA4);
+
+        BufferedImage bImage15 = ImageIO.read(new File("src/main/resources/assets/images/workshop/workshop/Paintings.png"));
+        ByteArrayOutputStream bos15 = new ByteArrayOutputStream();
+        ImageIO.write(bImage15, "png", bos15 );
+
+        WorkshopPicture workshopPictureA5 = new WorkshopPicture(bos15.toByteArray(), Genre.ART, "two older men holding two colourful paintings" );
+        workshopPictureRepository.save(workshopPictureA5);
+
+        BufferedImage bImage16 = ImageIO.read(new File("src/main/resources/assets/images/workshop/workshop/ChopOnion.png"));
+        ByteArrayOutputStream bos16 = new ByteArrayOutputStream();
+        ImageIO.write(bImage16, "png", bos16 );
+
+        WorkshopPicture workshopPictureC1 = new WorkshopPicture(bos16.toByteArray(), Genre.COOKING, "close up of hands chopping an onion" );
+        workshopPictureRepository.save(workshopPictureC1);
+
+        BufferedImage bImage17 = ImageIO.read(new File("src/main/resources/assets/images/workshop/workshop/Cook.png"));
+        ByteArrayOutputStream bos17 = new ByteArrayOutputStream();
+        ImageIO.write(bImage17, "png", bos17 );
+
+        WorkshopPicture workshopPictureC2 = new WorkshopPicture(bos17.toByteArray(), Genre.COOKING, "a woman in chef hat tasting a sauce" );
+        workshopPictureRepository.save(workshopPictureC2);
+
+        BufferedImage bImage18 = ImageIO.read(new File("src/main/resources/assets/images/workshop/workshop/FoodChopping.png"));
+        ByteArrayOutputStream bos18 = new ByteArrayOutputStream();
+        ImageIO.write(bImage18, "png", bos18 );
+
+        WorkshopPicture workshopPictureC3 = new WorkshopPicture(bos18.toByteArray(), Genre.COOKING, "a woman chopping a cucumber on a chopping board" );
+        workshopPictureRepository.save(workshopPictureC3);
+
+        BufferedImage bImage19 = ImageIO.read(new File("src/main/resources/assets/images/workshop/workshop/Oven.png"));
+        ByteArrayOutputStream bos19 = new ByteArrayOutputStream();
+        ImageIO.write(bImage19, "png", bos19 );
+
+        WorkshopPicture workshopPictureC4 = new WorkshopPicture(bos19.toByteArray(), Genre.COOKING, "an older man opening an oven" );
+        workshopPictureRepository.save(workshopPictureC4);
+
+        BufferedImage bImage20 = ImageIO.read(new File("src/main/resources/assets/images/workshop/workshop/Utensils.png"));
+        ByteArrayOutputStream bos20 = new ByteArrayOutputStream();
+        ImageIO.write(bImage20, "png", bos20 );
+
+        WorkshopPicture workshopPictureC5 = new WorkshopPicture(bos20.toByteArray(), Genre.COOKING, "a selection of cooking utensils, including spoons, whisks and spatulas." );
+        workshopPictureRepository.save(workshopPictureC5);
     }
 
 }
