@@ -8,40 +8,44 @@ import {ImExit} from 'react-icons/im'
 const MainBar = styled.div`
 border-style:solid;
 border-width: 1px;
-border-color:black
-position:absolute;`
+border-color:black;`
 
 const List = styled.ul`
- list-style:none;
+ display:flex;
+ flex-direction:row;
  margin:0;
  padding:0;
 `;
 
-const SideBar = () => {
+const LI = styled.li`
+list-style:none;
+`
+
+const Navigation = () => {
 
   return (
     <>
     <MainBar>
       <List>
-        <li>
-        <Link style={{ textDecoration: "none" }} to="/">
-        <h2> Home <FaHome/> </h2>
+        <LI>
+        <Link style={{ textDecoration: "none" }} to="/myhome">
+        <p> Home <FaHome/> </p>
         </Link>
-        </li>
-        <li>
-        <Link style={{ textDecoration: "none" }} to="/">
-        <h2> MyProfile <IoPersonCircle/> </h2>
+        </LI>
+        <LI>
+        <Link style={{ textDecoration: "none" }} to="/myprofile">
+        <p> MyProfile <IoPersonCircle/> </p>
         </Link>
-        </li>
-        <li>
+        </LI>
+        <LI>
         <Link style={{ textDecoration: "none" }} to="/">
-        <h2> SignOut <ImExit/> </h2>
+        <p> SignOut <ImExit/> </p>
         </Link>
-        </li>
+        </LI>
       </List>
     </MainBar>
     </>
   )
 }
 
-export default SideBar
+export default Navigation

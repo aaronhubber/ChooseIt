@@ -8,6 +8,7 @@ import music from "../assets/images/music.png";
 import art from "../assets/images/art.png";
 import cooking from "../assets/images/cooking.png";
 import styled from 'styled-components'
+import Navigation from '../components/Navigation';
 
 
 const FormContainer = styled.form`
@@ -85,6 +86,7 @@ const WorkshopSelectionContainer = () => {
 
     <>
     <div>
+    <Navigation/>
     <FormContainer method = "POST" onSubmit={handleSubmit}>
         <Label>Choose your Workshop</Label>
         <Workshop>
