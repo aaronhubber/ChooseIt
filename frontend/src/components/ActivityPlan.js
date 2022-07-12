@@ -1,19 +1,24 @@
-// import React from "react"
-// import Activities from "./Activities"
+import React from "react"
+import Activities from "./Activities"
 
-// const ActivityPlan = ({activity1}) => {
+const ActivityPlan = ({activity, time}) => {
 
 
-//     return (
-//         <>
-//         <div>
-//         <h3>Work?:</h3>
-//         {activity1.title}
-//         <div id="map"></div>
-        
-//         </div>
-//         </>
-//     )
-// }
+    if (!activity || !time) return null;
 
-// export default ActivityPlan;
+    let timeimg = "data:image/png;base64," + time.picture
+    let actimg = "data:image/png;base64," + activity.picture
+
+
+    return (
+        <>
+        <div>
+        <h3>Activity:</h3>
+        <img src={actimg}/>
+        <img src={timeimg}/>
+        </div>
+        </>
+    )
+}
+
+export default ActivityPlan;

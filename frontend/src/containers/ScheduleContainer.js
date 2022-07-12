@@ -2,7 +2,12 @@ import React, {useState, useEffect} from 'react'
 import {getActivityPictures} from '../services/services.js';
 import Navigation from '../components/Navigation';
 import ActivityPlan from '../components/ActivityPlan';
+import styled from 'styled-components'
 
+const PageFlex = styled.div`
+display: flex;
+flex: flex-wrap;
+`
 
 const ScheduleContainer = () => {
 
@@ -16,21 +21,53 @@ const ScheduleContainer = () => {
   const[activity4,setActivity4] = useState(null)
   const [allActivityPictures, setAllActivityPictures] = useState([])
 
-  // let time1img = "data:image/png;base64," + time.picture
-  // let act1img = "data:image/png;base64," + activity.picture
+  // let time1img = "data:image/png;base64," + time1.picture
+  // let act1img = "data:image/png;base64," + activity1.picture
+
 
   useEffect(() => {
     getActivityPictures().then((res) => setAllActivityPictures(res));
   }, []);
 
+  //Activity1
   const handleTimeChange = event => {
-    setTime1(event.target.value);
+    let timeObject = allActivityPictures.find( time => time.id  == event.target.value)
+    setTime1(timeObject)
   }
-  
   const handleActivityChange = event => {
-    setActivity1(event.target.value)
+    var activityObject = allActivityPictures.find(activity => activity.id == event.target.value)
+    setActivity1(activityObject)
   }
 
+  //Activity2
+  const handleTimeChange2 = event => {
+    let timeObject = allActivityPictures.find( time => time.id  == event.target.value)
+    setTime2(timeObject)
+  }
+  const handleActivityChange2 = event => {
+    var activityObject = allActivityPictures.find(activity => activity.id == event.target.value)
+    setActivity2(activityObject)
+  }
+
+  //Activity3
+  const handleTimeChange3 = event => {
+    let timeObject = allActivityPictures.find( time => time.id  == event.target.value)
+    setTime3(timeObject)
+  }
+  const handleActivityChange3 = event => {
+    var activityObject = allActivityPictures.find(activity => activity.id == event.target.value)
+    setActivity3(activityObject)
+  }
+
+  //Activity4
+  const handleTimeChange4 = event => {
+    let timeObject = allActivityPictures.find( time => time.id  == event.target.value)
+    setTime4(timeObject)
+  }
+  const handleActivityChange4 = event => {
+    var activityObject = allActivityPictures.find(activity => activity.id == event.target.value)
+    setActivity4(activityObject)
+  }
 
  const timeOptions = allActivityPictures?.map((time, index) => {
         const length = time.title.length
@@ -51,17 +88,53 @@ const activityOptions = allActivityPictures?.map((activity, index,) => {
     <div>
     <Navigation/>
       <h3>I am a schedule container</h3>
-      <form>
-      <select onChange = {handleTimeChange}>
-      {timeOptions}
-      </select>
-      <select  onChange = {handleActivityChange}>
-      {activityOptions}
-      </select>
-      {/* <img src = {act1img}/> */}
-      <h3>my time : {time1} </h3>
-      </form>
-      {/* <ActivityPlan activity1={activity1} time1={time1}/> */}
+      <PageFlex>
+      <div>
+        <form>
+          <select onChange = {handleTimeChange}>
+          {timeOptions}
+          </select>
+          <select  onChange = {handleActivityChange}>
+          {activityOptions}
+          </select>
+        </form>
+        <ActivityPlan activity={activity1} time={time1}/>
+      </div>
+        <div>
+          <form>
+            <select onChange = {handleTimeChange2}>
+            {timeOptions}
+            </select>
+            <select  onChange = {handleActivityChange2}>
+            {activityOptions}
+            </select>
+          </form>
+        <ActivityPlan activity={activity2} time={time2}/>
+      </div>
+      <div>
+          <form>
+              <select onChange = {handleTimeChange3}>
+              {timeOptions}
+              </select>
+              <select  onChange = {handleActivityChange3}>
+              {activityOptions}
+              </select>
+          </form>
+        <ActivityPlan activity={activity3} time={time3}/>
+      </div>
+        <div>
+          <form>
+            <select onChange = {handleTimeChange4}>
+            {timeOptions}
+            </select>
+            <select  onChange = {handleActivityChange4}>
+            {activityOptions}
+            </select>
+          </form>
+          <ActivityPlan activity={activity4} time={time4}/>
+        </div>
+      </PageFlex>
+    
     </div>
   )
 }
