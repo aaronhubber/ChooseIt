@@ -23,7 +23,7 @@ const FormContainer = styled.form`
   `
 
 
-const WorkshopSelectionContainer = () => {
+const WorkshopSelectionContainer = ({signOutUser, currentProfile}) => {
 
   const [randomWorkshop, setRandomWorkshop] = useState(null);
   const [randomWorkshop2, setRandomWorkshop2] = useState(null);
@@ -68,25 +68,11 @@ const WorkshopSelectionContainer = () => {
       runForm(choice1, choice2)
     };
 
-  // const randomWorkshopPicture = (()=>{
-  //  return getRandomWorkshopPicture
-  // })
-
-    // const pictureTiles = allWorkshopPictures?.map((workshopPicture, index) => {
-    //     return <WorkshopPicture workshopPicture={workshopPicture} key={index} />;
-    //   });
-
-      // const profilePicTiles = allProfilePics.map((profilePic, index) => {
-      //   return <UserProfilePic profilePic={profilePic} key={index} />;
-      // });
-
-
-
   return (
 
     <>
     <div>
-    <Navigation/>
+    <Navigation signOutUser = {signOutUser}/>
     <FormContainer method = "POST" onSubmit={handleSubmit}>
         <Label>Choose your Workshop</Label>
         <Workshop>

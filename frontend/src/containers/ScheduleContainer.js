@@ -11,7 +11,7 @@ display: flex;
 flex: flex-wrap;
 `
 
-const ScheduleContainer = () => {
+const ScheduleContainer = ( signOutUser, currentProfile) => {
 
   const[time1,setTime1] = useState(null)
   const[time2,setTime2] = useState(null)
@@ -102,7 +102,7 @@ const activityOptions = allActivityPictures?.map((activity, index,) => {
 
   return (
     <div>
-    <Navigation/>
+    <Navigation signOutUser = {signOutUser}/>
       <h3>I am a schedule container</h3>
       <PageFlex ref={printRef}>
       <div>
