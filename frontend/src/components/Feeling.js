@@ -1,14 +1,19 @@
 import React from "react"
 
 
+
 const Feeling = ({feeling}) => {
+
+let byteSource = "data:image/png;base64," + feeling.picture
+
 
     return (
         <>
-        <h4>I am feeling...</h4>
-        <p className="fac-workshops">{feeling.title}</p>
+        <div>{feeling.title}<img src = {byteSource} value={feeling}></img></div>
         </>
     )
 }
+
+  
 
 export default Feeling

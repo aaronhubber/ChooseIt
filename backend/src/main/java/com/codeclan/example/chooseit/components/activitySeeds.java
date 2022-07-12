@@ -150,25 +150,25 @@ public class activitySeeds implements ApplicationRunner {
         ActivityPicture activityPicture18 = new ActivityPicture("Sandwich", "A chicken and avocado sandwich", bos18.toByteArray());
         activityPictureRepository.save(activityPicture18);
 
-        BufferedImage bImage19 = ImageIO.read(new File("src/main/resources/assets/images/activities/Tea.png"));
+        BufferedImage bImage19 = ImageIO.read(new File("src/main/resources/assets/images/activities/Teas.png"));
         ByteArrayOutputStream bos19 = new ByteArrayOutputStream();
         ImageIO.write(bImage19, "png", bos19);
 
-        ActivityPicture activityPicture19 = new ActivityPicture("Tea", "A mug with I love tea written on the front", bos19.toByteArray());
+        ActivityPicture activityPicture19 = new ActivityPicture("Cup Of Tea", "A mug with I love tea written on the front", bos19.toByteArray());
         activityPictureRepository.save(activityPicture19);
 
-        BufferedImage bImage20 = ImageIO.read(new File("src/main/resources/assets/images/activities/Dog.png"));
+        BufferedImage bImage20 = ImageIO.read(new File("src/main/resources/assets/images/activities/Dogs.png"));
         ByteArrayOutputStream bos20 = new ByteArrayOutputStream();
         ImageIO.write(bImage20, "png", bos20);
 
-        ActivityPicture activityPicture20 = new ActivityPicture("Dog", "A man next to a happy dog", bos20.toByteArray());
+        ActivityPicture activityPicture20 = new ActivityPicture("Dogs", "A man next to a happy dog", bos20.toByteArray());
         activityPictureRepository.save(activityPicture20);
 
-        BufferedImage bImage21 = ImageIO.read(new File("src/main/resources/assets/images/activities/Pub.png"));
+        BufferedImage bImage21 = ImageIO.read(new File("src/main/resources/assets/images/activities/PubBeer.png"));
         ByteArrayOutputStream bos21 = new ByteArrayOutputStream();
         ImageIO.write(bImage21, "png", bos21);
 
-        ActivityPicture activityPicture21 = new ActivityPicture("Pub", "A man enjoying a pint of beer", bos21.toByteArray());
+        ActivityPicture activityPicture21 = new ActivityPicture("Pub Beer", "A man enjoying a pint of beer", bos21.toByteArray());
         activityPictureRepository.save(activityPicture21);
 
         BufferedImage bImage22 = ImageIO.read(new File("src/main/resources/assets/images/activities/Swimming.png"));
@@ -178,11 +178,11 @@ public class activitySeeds implements ApplicationRunner {
         ActivityPicture activityPicture22 = new ActivityPicture("Swimming", "A woman in a swimming pool", bos22.toByteArray());
         activityPictureRepository.save(activityPicture22);
 
-        BufferedImage bImage23 = ImageIO.read(new File("src/main/resources/assets/images/activities/TV.png"));
+        BufferedImage bImage23 = ImageIO.read(new File("src/main/resources/assets/images/activities/Television.png"));
         ByteArrayOutputStream bos23 = new ByteArrayOutputStream();
         ImageIO.write(bImage23, "png", bos23);
 
-        ActivityPicture activityPicture23 = new ActivityPicture("TV", "An older style TV with BBC on screen", bos23.toByteArray());
+        ActivityPicture activityPicture23 = new ActivityPicture("Television", "An older style TV with BBC on screen", bos23.toByteArray());
         activityPictureRepository.save(activityPicture23);
     }
 }
