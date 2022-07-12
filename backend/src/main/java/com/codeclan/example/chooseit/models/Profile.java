@@ -31,7 +31,7 @@ public class Profile {
     private ProfilePicture profilepicture;
 
 
-    @OneToMany(mappedBy = "profile")
+    @OneToMany(mappedBy = "profile", cascade = CascadeType.ALL)
 //    @JsonIgnoreProperties({"profile"})
     private List<PdfModel> pdfs;
 
