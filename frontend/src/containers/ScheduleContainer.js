@@ -3,6 +3,8 @@ import {getActivityPictures} from '../services/services.js';
 import Navigation from '../components/Navigation';
 import ActivityPlan from '../components/ActivityPlan';
 import styled from 'styled-components'
+import html2canvas from 'html2canvas';
+import { jsPDF } from 'jspdf';
 
 const PageFlex = styled.div`
 display: flex;
@@ -21,8 +23,22 @@ const ScheduleContainer = () => {
   const[activity4,setActivity4] = useState(null)
   const [allActivityPictures, setAllActivityPictures] = useState([])
 
-  // let time1img = "data:image/png;base64," + time1.picture
-  // let act1img = "data:image/png;base64," + activity1.picture
+  const printRef = React.useRef();
+
+  const handleDownloadPdf = async () => {
+  const element = printRef.current;
+  const canvas = await html2canvas(element);
+  const data = canvas.toDataURL('image/png');
+
+  const pdf = new jsPDF();
+  const imgProperties = pdf.getImageProperties(data);
+  const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight =
+      (imgProperties.height * pdfWidth) / imgProperties.width;
+
+  pdf.addImage(data, 'PNG', 0, 0, pdfWidth, pdfHeight);
+  pdf.save('ACTIVITIES.pdf');
+  };
 
 
   useEffect(() => {
@@ -88,7 +104,7 @@ const activityOptions = allActivityPictures?.map((activity, index,) => {
     <div>
     <Navigation/>
       <h3>I am a schedule container</h3>
-      <PageFlex>
+      <PageFlex ref={printRef}>
       <div>
         <form>
           <select onChange = {handleTimeChange}>
@@ -132,6 +148,9 @@ const activityOptions = allActivityPictures?.map((activity, index,) => {
             </select>
           </form>
           <ActivityPlan activity={activity4} time={time4}/>
+          <button type="button" onClick={handleDownloadPdf}>
+        Download as PDF
+        </button>
         </div>
       </PageFlex>
     

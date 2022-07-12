@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.*;
+import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
@@ -37,24 +38,26 @@ public class UserProfileController {
 
 
     //Update old image with new one
-    @PutMapping (value = "/userprofiles/{id}")
-    public Profile addUser(@PathVariable(name = "id") Long id,
-                           @RequestBody Profile _Profile)
+    @PutMapping (value = "/updateuserprofilepdf/{id}")
+    public ResponseEntity<Profile> updateUserProfilePdf (@PathVariable(name = "id") Long id,
+                                  @RequestPart MultipartFile file)
             throws IOException {
         Optional<Profile> oldRecord = userProfileRepository.findById(id);
-        ProfilePicture profilePicture = oldRecord.get().getProfilepicture();
-        Profile profile = _Profile;
-        profile.setProfilepicture(profilePicture);
-        profile.setId(id);
-        userProfileRepository.save(profile);
-        return profile;
+        PdfModel pdfModel = new PdfModel();
+        pdfModel.setContentType(file.getContentType());
+        pdfModel.setData(file.getBytes());
+        pdfModel.setDescription(file.getOriginalFilename());
+        oldRecord.get().addPdf(pdfModel);
+        userProfileRepository.save(oldRecord.get());
+        return new ResponseEntity(oldRecord,HttpStatus.OK);
     }
 
 
     @RequestMapping(path = "/userprofiles", method = POST, consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
-    public Profile addUserTest(@RequestPart String name,
+    public ResponseEntity<Profile> addUserTest(@RequestPart String name,
                                @RequestPart String assistanceLevel,
                                @RequestPart MultipartFile file)
+
             throws IOException {
         Profile profile = new Profile(name, assistanceLevel);
         ProfilePicture picture = new ProfilePicture();
@@ -64,7 +67,7 @@ public class UserProfileController {
         profile.setProfilepicture(picture);
 
         userProfileRepository.save(profile);
-        return profile;
+        return new ResponseEntity(profile, HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/userprofiles/{id}")

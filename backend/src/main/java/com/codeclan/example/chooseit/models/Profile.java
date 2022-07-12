@@ -2,9 +2,12 @@ package com.codeclan.example.chooseit.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
+
 
 
 @Entity
@@ -28,12 +31,17 @@ public class Profile {
     private ProfilePicture profilepicture;
 
 
+    @OneToMany(mappedBy = "profile")
+//    @JsonIgnoreProperties({"profile"})
+    private List<PdfModel> pdfs;
+
     public Profile() {
     }
 
     public Profile(String name, String assistanceLevel) {
         this.name = name;
         this.assistanceLevel = assistanceLevel;
+
 
     }
 
@@ -54,6 +62,13 @@ public class Profile {
         this.name = name;
     }
 
+    public List<PdfModel> getPdfs() {
+        return pdfs;
+    }
+
+    public void setPdfs(List<PdfModel> pdfs) {
+        this.pdfs = pdfs;
+    }
 
     public ProfilePicture getProfilepicture() {
         return profilepicture;
@@ -69,5 +84,9 @@ public class Profile {
 
     public void setAssistanceLevel(String assistanceLevel) {
         this.assistanceLevel = assistanceLevel;
+    }
+
+    public void addPdf (PdfModel pdfModel){
+        pdfs.add(pdfModel);
     }
 }

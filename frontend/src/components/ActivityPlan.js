@@ -1,5 +1,4 @@
 import React from "react"
-import Activities from "./Activities"
 
 const ActivityPlan = ({activity, time}) => {
 
@@ -8,6 +7,8 @@ const ActivityPlan = ({activity, time}) => {
 
     let timeimg = "data:image/png;base64," + time.picture
     let actimg = "data:image/png;base64," + activity.picture
+
+
 
 
     return (
