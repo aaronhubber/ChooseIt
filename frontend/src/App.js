@@ -8,6 +8,7 @@ import UserProfile from './components/UserProfile';
 import ChoiceHomeContainer from './containers/ChoiceHomeContainer';
 import WorkshopSelectionContainer from './containers/WorkshopSelectionContainer';
 import EmotionSelectionContainer from './containers/EmotionSelectionContainer';
+import MyProfileContainer from './containers/MyProfileContainer';
 import styled from 'styled-components';
 
 
@@ -64,6 +65,7 @@ function App() {
               allProfiles = {allProfiles} 
               selectProfile = {selectProfile}
               addProfile = {addProfile}
+              signOutUser = {signOutUser}
               />)}/>
 
             <Route path="/workshopchoice" element={
@@ -84,6 +86,11 @@ function App() {
 
             <Route path="/emotionchoice" element={<EmotionSelectionContainer
             signOutUser = {signOutUser}
+            currentProfile = {currentProfile}/>}/>
+
+            <Route path="/myprofile" element={<MyProfileContainer
+            signOutUser = {signOutUser}
+            selectProfile = {selectProfile}
             currentProfile = {currentProfile}/>}/>
 
         </Routes>

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
+import MyProfileContainer from '../containers/MyProfileContainer';
 
 const ProfileTile = styled.div`
 border-style:solid;
@@ -29,16 +31,26 @@ text-align:center;
 
 const UserProfile = ({profile , selectProfile}) => {
 
+  const navigate = useNavigate();
+
 let byteSource = "data:" + profile.contentType + ";base64," + profile.profilepicture.picture
 
 const handleProfileSelect = () => {
   selectProfile(profile);
 };
 
+const handleMyProfile = () => {
+  navigate('/myprofile')
+}
+
   return (
     <ProfileTile>
      <ProfilePic width = "200" src={byteSource} onClick = {handleProfileSelect}/>
      <ProfileName>{profile.name}</ProfileName>
+     <button type="button" onClick = {handleMyProfile}>Full Profile</button>
+     <Routes>
+          <Route path="/myprofile" element={<MyProfileContainer />} />
+      </Routes>
     </ProfileTile>
   )
 }
