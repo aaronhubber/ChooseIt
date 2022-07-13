@@ -123,14 +123,14 @@ const ScheduleContainer = ( signOutUser, currentProfile) => {
 
  const timeOptions = allActivityPictures?.map((time, index) => {
         const length = time.title.length
-        if (length <3)
+        if (length <=4)
         return <option value = {time.id} key={index}>{time.title} </option>;
       });
 
 
 const activityOptions = allActivityPictures?.map((activity, index,) => {
         const length = activity.title.length
-        if (length >3)
+        if (length >4)
       
         return <option value = {activity.id} key={index}>{activity.title}</option>;
       });
@@ -140,6 +140,7 @@ const activityOptions = allActivityPictures?.map((activity, index,) => {
     <div>
     <Navigation signOutUser = {signOutUser}/>
       <Title>Choose What To Do Today!</Title>
+      <p>Here you can choose your activities for the day. In the top set of boxes you can chose times, in the botton set of boxes you can chose things to do. If you want to save this timetable you can click the button at the botton of the screen.</p>
       <PageFlex ref={printRef}>
       <Tile>
         <form>

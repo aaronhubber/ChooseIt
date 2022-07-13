@@ -74,6 +74,12 @@ align-items:center;
   border-color:grey;
   border-width: 2px;`
 
+const Title = styled.h1`
+text-align:center;
+color:white;
+
+`
+
 const WorkshopSelectionContainer = ({signOutUser, currentProfile}) => {
 
   const [randomWorkshop, setRandomWorkshop] = useState(null);
@@ -126,6 +132,8 @@ const WorkshopSelectionContainer = ({signOutUser, currentProfile}) => {
     <>
     <div>
     <Navigation signOutUser = {signOutUser}/>
+    <Title>Choose A Workshop</Title>
+    <p>Here you can choose which workshop you would like to do. There are four pictures on the left and four on the right, chose two that you would like to make a choice between. Then click the submit button. This will make two images appear, click the button next to the one you like best and that will be added to a list to show you which workshop you have chosen most often.</p>
     <FormContainer method = "POST" onSubmit={handleSubmit}>
     <BothFlex>
         <OptionBox>

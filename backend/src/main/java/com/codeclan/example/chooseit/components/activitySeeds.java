@@ -28,84 +28,84 @@ public class activitySeeds implements ApplicationRunner {
         ByteArrayOutputStream bos1 = new ByteArrayOutputStream();
         ImageIO.write(bImage1, "png", bos1);
 
-        ActivityPicture activityPicture1 = new ActivityPicture("1", "Clock with big hand at 12 and small hand at 1", bos1.toByteArray());
+        ActivityPicture activityPicture1 = new ActivityPicture("1PM", "Clock with big hand at 12 and small hand at 1", bos1.toByteArray());
         activityPictureRepository.save(activityPicture1);
 
         BufferedImage bImage2 = ImageIO.read(new File("src/main/resources/assets/images/activities/02_00.png"));
         ByteArrayOutputStream bos2 = new ByteArrayOutputStream();
         ImageIO.write(bImage2, "png", bos2);
 
-        ActivityPicture activityPicture2 = new ActivityPicture("2", "Clock with big hand at 12 and small hand at 2", bos2.toByteArray());
+        ActivityPicture activityPicture2 = new ActivityPicture("2PM", "Clock with big hand at 12 and small hand at 2", bos2.toByteArray());
         activityPictureRepository.save(activityPicture2);
 
         BufferedImage bImage3 = ImageIO.read(new File("src/main/resources/assets/images/activities/03_00.png"));
         ByteArrayOutputStream bos3 = new ByteArrayOutputStream();
         ImageIO.write(bImage3, "png", bos3);
 
-        ActivityPicture activityPicture3 = new ActivityPicture("3", "Clock with big hand at 12 and small hand at 3", bos3.toByteArray());
+        ActivityPicture activityPicture3 = new ActivityPicture("3PM", "Clock with big hand at 12 and small hand at 3", bos3.toByteArray());
         activityPictureRepository.save(activityPicture3);
 
         BufferedImage bImage4 = ImageIO.read(new File("src/main/resources/assets/images/activities/04_00.png"));
         ByteArrayOutputStream bos4 = new ByteArrayOutputStream();
         ImageIO.write(bImage4, "png", bos4);
 
-        ActivityPicture activityPicture4 = new ActivityPicture("4", "Clock with big hand at 12 and small hand at 4", bos4.toByteArray());
+        ActivityPicture activityPicture4 = new ActivityPicture("4PM", "Clock with big hand at 12 and small hand at 4", bos4.toByteArray());
         activityPictureRepository.save(activityPicture4);
 
         BufferedImage bImage5 = ImageIO.read(new File("src/main/resources/assets/images/activities/05_00.png"));
         ByteArrayOutputStream bos5 = new ByteArrayOutputStream();
         ImageIO.write(bImage5, "png", bos5);
 
-        ActivityPicture activityPicture5 = new ActivityPicture("5", "Clock with big hand at 12 and small hand at 5", bos5.toByteArray());
+        ActivityPicture activityPicture5 = new ActivityPicture("5PM", "Clock with big hand at 12 and small hand at 5", bos5.toByteArray());
         activityPictureRepository.save(activityPicture5);
 
         BufferedImage bImage6 = ImageIO.read(new File("src/main/resources/assets/images/activities/06_00.png"));
         ByteArrayOutputStream bos6 = new ByteArrayOutputStream();
         ImageIO.write(bImage6, "png", bos6);
 
-        ActivityPicture activityPicture6 = new ActivityPicture("6", "Clock with big hand at 12 and small hand at 6", bos6.toByteArray());
+        ActivityPicture activityPicture6 = new ActivityPicture("6PM", "Clock with big hand at 12 and small hand at 6", bos6.toByteArray());
         activityPictureRepository.save(activityPicture6);
 
         BufferedImage bImage7 = ImageIO.read(new File("src/main/resources/assets/images/activities/07_00.png"));
         ByteArrayOutputStream bos7 = new ByteArrayOutputStream();
         ImageIO.write(bImage7, "png", bos7);
 
-        ActivityPicture activityPicture7 = new ActivityPicture("7", "Clock with big hand at 12 and small hand at 7", bos7.toByteArray());
+        ActivityPicture activityPicture7 = new ActivityPicture("7PM", "Clock with big hand at 12 and small hand at 7", bos7.toByteArray());
         activityPictureRepository.save(activityPicture7);
 
         BufferedImage bImage8 = ImageIO.read(new File("src/main/resources/assets/images/activities/08_00.png"));
         ByteArrayOutputStream bos8 = new ByteArrayOutputStream();
         ImageIO.write(bImage8, "png", bos8);
 
-        ActivityPicture activityPicture8 = new ActivityPicture("8", "Clock with big hand at 12 and small hand at 8", bos8.toByteArray());
+        ActivityPicture activityPicture8 = new ActivityPicture("8PM", "Clock with big hand at 12 and small hand at 8", bos8.toByteArray());
         activityPictureRepository.save(activityPicture8);
 
         BufferedImage bImage9 = ImageIO.read(new File("src/main/resources/assets/images/activities/09_00.png"));
         ByteArrayOutputStream bos9 = new ByteArrayOutputStream();
         ImageIO.write(bImage9, "png", bos9);
 
-        ActivityPicture activityPicture9 = new ActivityPicture("9", "Clock with big hand at 12 and small hand at 9", bos9.toByteArray());
+        ActivityPicture activityPicture9 = new ActivityPicture("9PM", "Clock with big hand at 12 and small hand at 9", bos9.toByteArray());
         activityPictureRepository.save(activityPicture9);
 
         BufferedImage bImage10 = ImageIO.read(new File("src/main/resources/assets/images/activities/10_00.png"));
         ByteArrayOutputStream bos10 = new ByteArrayOutputStream();
         ImageIO.write(bImage10, "png", bos10);
 
-        ActivityPicture activityPicture10 = new ActivityPicture("10", "Clock with big hand at 12 and small hand at 10", bos10.toByteArray());
+        ActivityPicture activityPicture10 = new ActivityPicture("10AM", "Clock with big hand at 12 and small hand at 10", bos10.toByteArray());
         activityPictureRepository.save(activityPicture10);
 
         BufferedImage bImage11 = ImageIO.read(new File("src/main/resources/assets/images/activities/11_00.png"));
         ByteArrayOutputStream bos11 = new ByteArrayOutputStream();
         ImageIO.write(bImage11, "png", bos11);
 
-        ActivityPicture activityPicture11 = new ActivityPicture("11", "Clock with big hand at 12 and small hand at 11", bos11.toByteArray());
+        ActivityPicture activityPicture11 = new ActivityPicture("11AM", "Clock with big hand at 12 and small hand at 11", bos11.toByteArray());
         activityPictureRepository.save(activityPicture11);
 
         BufferedImage bImage12 = ImageIO.read(new File("src/main/resources/assets/images/activities/12_00.png"));
         ByteArrayOutputStream bos12 = new ByteArrayOutputStream();
         ImageIO.write(bImage12, "png", bos12);
 
-        ActivityPicture activityPicture12 = new ActivityPicture("12", "Clock with big hand at 12 and small hand at 12", bos12.toByteArray());
+        ActivityPicture activityPicture12 = new ActivityPicture("12AM", "Clock with big hand at 12 and small hand at 12", bos12.toByteArray());
         activityPictureRepository.save(activityPicture12);
 
         BufferedImage bImage13 = ImageIO.read(new File("src/main/resources/assets/images/activities/Breakfast.png"));
@@ -161,7 +161,7 @@ public class activitySeeds implements ApplicationRunner {
         ByteArrayOutputStream bos20 = new ByteArrayOutputStream();
         ImageIO.write(bImage20, "png", bos20);
 
-        ActivityPicture activityPicture20 = new ActivityPicture("Dogs", "A man next to a happy dog", bos20.toByteArray());
+        ActivityPicture activityPicture20 = new ActivityPicture("Dog Walker", "A man next to a happy dog", bos20.toByteArray());
         activityPictureRepository.save(activityPicture20);
 
         BufferedImage bImage21 = ImageIO.read(new File("src/main/resources/assets/images/activities/PubBeer.png"));
