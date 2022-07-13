@@ -11,6 +11,11 @@ const MyProfileContainer = ({signOutUser, currentProfile}) => {
     // if(currentProfile.pfds.length() = 0) return null
     let byteSource = "data:image/png;base64," + currentProfile.profilepicture.picture
     // let byteSourcePdf = "data:application/pdf;base64," + currentProfile.pdfs[0].data
+
+    const myArray = currentProfile.pdfs
+    console.log(currentProfile)
+
+    if (myArray.length === undefined) return null
     
 
     return(
@@ -22,9 +27,12 @@ const MyProfileContainer = ({signOutUser, currentProfile}) => {
             {currentProfile.name}
             {currentProfile.profilepicture.description}
             <img src = {byteSource} />
+
             </h1>
-            {/* <img src = {byteSourcePdf} /> */}
-            <PdfView currentProfile = {currentProfile}/>      
+            {/* <img src = {byteSourcePdf} /> */}   
+        </h1>
+         <PdfView currentProfile = {currentProfile}/>
+
     </>
 )}
 

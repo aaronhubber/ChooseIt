@@ -49,6 +49,7 @@ function App() {
     postUser(file, data).then((profileWithID) => {
       const temp = [...allProfiles];
       temp.push(profileWithID);
+      console.log(profileWithID)
       setAllProfiles(temp);
     });
   };
