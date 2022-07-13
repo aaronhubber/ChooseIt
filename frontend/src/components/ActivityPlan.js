@@ -1,4 +1,15 @@
 import React from "react"
+import styled from 'styled-components'
+
+const ActivityDetail = styled.div`
+display:flex;
+flex-direction: column;
+justify-content:center;
+align-items:center;`
+
+const H3 = styled.h3`
+color:black;
+`
 
 const ActivityPlan = ({activity, time}) => {
 
@@ -13,11 +24,11 @@ const ActivityPlan = ({activity, time}) => {
 
     return (
         <>
-        <div>
-        <h3>Activity:</h3>
+        <ActivityDetail>
+        <H3>Activity</H3>
         <img src={actimg}/>
         <img src={timeimg}/>
-        </div>
+        </ActivityDetail>
         </>
     )
 }

@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+
+
+body {
+  background-image:url("/Users/jasminemills/CodeClan_work/final_project/chooseit/ChooseIt/frontend/src/assets/images/background.png");
+ background-size:cover;
+}
+
+a:-webkit-any-link {
+  text-decoration: none;
+  cursor: pointer;
+  color:black;
+}

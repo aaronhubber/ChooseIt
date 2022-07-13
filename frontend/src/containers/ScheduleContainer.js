@@ -5,11 +5,47 @@ import ActivityPlan from '../components/ActivityPlan';
 import styled from 'styled-components'
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
+import img from '../assets/images/background.png';
+
 
 const PageFlex = styled.div`
 display: flex;
 flex: flex-wrap;
 `
+
+const Tile = styled.div`
+border-style:solid;
+border-color:grey;
+border-width:1px;
+/* height: 450px; */
+width: 23%;
+margin:20px;
+padding:20px;
+justify-content:center;
+display:flex;
+flex-direction:column;
+align-items:center;
+background-color:white;`
+
+const Select = styled.select`
+/* appearance:none; */
+width: 95%;
+height: 35px;
+background: white;
+color: black;
+padding-left: 5px;
+font-size: 14px;
+border-color: grey;
+border-style:solid;
+margin:5px;
+text-align-last:center;
+`
+
+ const Title = styled.h1`
+ text-align:center;
+ color:white;
+
+ `
 
 const ScheduleContainer = ( signOutUser, currentProfile) => {
 
@@ -103,56 +139,64 @@ const activityOptions = allActivityPictures?.map((activity, index,) => {
   return (
     <div>
     <Navigation signOutUser = {signOutUser}/>
-      <h3>I am a schedule container</h3>
+      <Title>Choose What To Do Today!</Title>
       <PageFlex ref={printRef}>
-      <div>
+      <Tile>
         <form>
-          <select onChange = {handleTimeChange}>
+          <Select onChange = {handleTimeChange}>
+          <option value="" disabled selected hidden>Choose a Time</option>
           {timeOptions}
-          </select>
-          <select  onChange = {handleActivityChange}>
+          </Select>
+          <Select  onChange = {handleActivityChange}>
+          <option value="" disabled selected hidden>Choose an Activity</option>
           {activityOptions}
-          </select>
+          </Select>
         </form>
         <ActivityPlan activity={activity1} time={time1}/>
-      </div>
-        <div>
+      </Tile>
+        <Tile>
           <form>
-            <select onChange = {handleTimeChange2}>
+            <Select onChange = {handleTimeChange2}>
+            <option value="" disabled selected hidden>Choose a Time</option>
             {timeOptions}
-            </select>
-            <select  onChange = {handleActivityChange2}>
+            </Select>
+            <Select  onChange = {handleActivityChange2}>
+            <option value="" disabled selected hidden>Choose an Activity</option>
             {activityOptions}
-            </select>
+            </Select>
           </form>
         <ActivityPlan activity={activity2} time={time2}/>
-      </div>
-      <div>
+      </Tile>
+      <Tile>
           <form>
-              <select onChange = {handleTimeChange3}>
+              <Select onChange = {handleTimeChange3}>
+              <option value="" disabled selected hidden>Choose a Time</option>
               {timeOptions}
-              </select>
-              <select  onChange = {handleActivityChange3}>
+              </Select>
+              <Select  onChange = {handleActivityChange3}>
+              <option value="" disabled selected hidden>Choose an Activity</option>
               {activityOptions}
-              </select>
+              </Select>
           </form>
         <ActivityPlan activity={activity3} time={time3}/>
-      </div>
-        <div>
+      </Tile>
+        <Tile>
           <form>
-            <select onChange = {handleTimeChange4}>
+            <Select onChange = {handleTimeChange4}>
+            <option value="" disabled selected hidden>Choose a Time</option>
             {timeOptions}
-            </select>
-            <select  onChange = {handleActivityChange4}>
+            </Select>
+            <Select  onChange = {handleActivityChange4}>
+            <option value="" disabled selected hidden>Choose an Activity</option>
             {activityOptions}
-            </select>
+            </Select>
           </form>
           <ActivityPlan activity={activity4} time={time4}/>
+          </Tile>
+      </PageFlex>
           <button type="button" onClick={handleDownloadPdf}>
         Download as PDF
         </button>
-        </div>
-      </PageFlex>
     
     </div>
   )
