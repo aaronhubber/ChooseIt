@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navigation from '../components/Navigation';
+import PdfView from '../components/PdfView'
 
 
 
@@ -7,6 +8,7 @@ const MyProfileContainer = ({signOutUser, currentProfile}) => {
 
 
     if (!currentProfile) return null;
+    // if(currentProfile.pfds.length() = 0) return null
     let byteSource = "data:image/png;base64," + currentProfile.profilepicture.picture
     // let byteSourcePdf = "data:application/pdf;base64," + currentProfile.pdfs[0].data
     
@@ -20,10 +22,9 @@ const MyProfileContainer = ({signOutUser, currentProfile}) => {
             {currentProfile.name}
             {currentProfile.profilepicture.description}
             <img src = {byteSource} />
-            {currentProfile.pdfs[0].description}
+            </h1>
             {/* <img src = {byteSourcePdf} /> */}
-        
-        </h1>
+            <PdfView currentProfile = {currentProfile}/>      
     </>
 )}
 
