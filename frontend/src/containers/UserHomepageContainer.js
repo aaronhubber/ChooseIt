@@ -38,7 +38,7 @@ const NavFlex = styled.div`
 const FlexBox = styled.div`
 display: flex;
 flex-direction:column;
-background-image: url("/Users/jasminemills/CodeClan_work/final_project/chooseit/ChooseIt/frontend/src/assets/images/background.png");
+background-color:white;
 `;
 
 const UserHomepageContainer = ({signOutUser, currentProfile}) => {

@@ -9,6 +9,9 @@ import art from "../assets/images/art.png";
 import cooking from "../assets/images/cooking.png";
 import styled from 'styled-components'
 import Navigation from '../components/Navigation';
+// import img from '../assets/images/background.png';
+
+
 
 
 const FormContainer = styled.form`
@@ -20,6 +23,16 @@ const FormContainer = styled.form`
   const Label = styled.label`
   `
   const InputSubmit = styled.input`
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  font-size:30px
+  margin: 4px 2px;
+  cursor: pointer;
+  &:hover{
+    transform: scale(0.9);};
   `
 
 
@@ -157,7 +170,7 @@ const WorkshopSelectionContainer = ({signOutUser, currentProfile}) => {
             <img src={gardening} height="70" width="70" />
           </label>
         </Workshop>
-        <InputSubmit type="submit" value="submit" text = "NEXT!"/>
+        <InputSubmit type="submit" value="submit"/>
       </FormContainer>
       <WorkshopPicture randomWorkshop={randomWorkshop} onFavouriteClick={onFavouriteClick}/> 
       <WorkshopPicture2 randomWorkshop2={randomWorkshop2} onFavouriteClick={onFavouriteClick}/>
