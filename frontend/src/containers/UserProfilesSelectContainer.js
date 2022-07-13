@@ -4,9 +4,7 @@ import styled from 'styled-components'
 import img from '../assets/images/background.png';
 import AddUser from '../components/AddUser';
 import EmptyTile from '../components/EmptyTile';
-
-
-
+import Navigation from '../components/Navigation';
 
 const Body = styled.div`
 /* background-color:green; */
@@ -36,7 +34,7 @@ const NewUser = styled.img`
     transform:scale(1.1);}
 `;
 
-const UserProfilesSelectContainer = ({allProfiles, selectProfile, addProfile}) => {
+const UserProfilesSelectContainer = ({allProfiles, selectProfile, addProfile, signOutUser}) => {
 
   const [newUserForm, setNewUserForm] = useState(false);
 
@@ -53,6 +51,7 @@ const UserProfilesSelectContainer = ({allProfiles, selectProfile, addProfile}) =
   return (
 
     <>
+    <Navigation signOutUser = {signOutUser}/>
     <Body>
     <ProfileFlex>
     {profileTiles} 

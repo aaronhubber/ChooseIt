@@ -4,6 +4,11 @@ export const getProfiles = () => {
     .then((res) => res.json());
 };
 
+export const getProfilesId = (id) => {
+  return fetch("http://localhost:8080/userprofiles/" + id)
+  .then((res) => res.json());
+};
+
 export const getImages = () => {
     return fetch("http://localhost:8080/workshoppictures")
     .then((res) => res.json())
