@@ -62,7 +62,6 @@ public class UserProfileController {
     public ResponseEntity<Profile> addUserTest(@RequestPart String name,
                                @RequestPart String assistanceLevel,
                                @RequestPart MultipartFile file)
-
             throws IOException {
         Profile profile = new Profile(name, assistanceLevel);
         ProfilePicture picture = new ProfilePicture();
@@ -70,8 +69,6 @@ public class UserProfileController {
         picture.setPicture(file.getBytes());
         picture.setContentType(file.getContentType());
         profile.setProfilepicture(picture);
-
-
         userProfileRepository.save(profile);
         return new ResponseEntity(profile, HttpStatus.OK);
     }

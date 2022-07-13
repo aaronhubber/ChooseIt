@@ -1,20 +1,20 @@
 import React from 'react'
 
-const PdfView = ({currentProfile}) => {
+const PdfView = ({currentProfile, pdfURL}) => {
 
    if(currentProfile.pdfs.length === 0) return null
 
-  
+
 
     
   return (
     <>
     <div>
-        <object 
-        style={{width: '100%', height: '200pt'}} 
-        type="application/pdf" 
-        data={'data:application/pdf;base64,'+currentProfile.pdfs[0].data}>
-        </object>   
+        <object type="application/pdf"
+                data={pdfURL}
+                width="250"
+                height="200">
+            </object>  
     </div>
     <div>{currentProfile.pdfs[0].description}</div>
     </>

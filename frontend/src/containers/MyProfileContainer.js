@@ -12,6 +12,7 @@ const MyProfileContainer = ({signOutUser, currentProfile}) => {
 
 
     if (!currentProfile) return null;
+  
     // if(currentProfile.pfds.length() = 0) return null
     let byteSource = "data:image/png;base64," + currentProfile.profilepicture.picture
     // let byteSourcePdf = "data:application/pdf;base64," + currentProfile.pdfs[0].data
@@ -41,12 +42,15 @@ const MyProfileContainer = ({signOutUser, currentProfile}) => {
         });
       };
     
-
     const handleSubmit = (event) => {
         event.preventDefault();
         updatePdfList(pdfFile,);
         event.target.reset();
       };
+
+      const docs = currentProfile.pdfs.map((document, index) => {
+        return <PdfView document={document} pdfURL={pdfURL} key={index} />;
+      });
 
     return(
     <>
@@ -55,23 +59,18 @@ const MyProfileContainer = ({signOutUser, currentProfile}) => {
             Profile Details
             
             {currentProfile.name}
-            {currentProfile.profilepicture.description}
             <img src = {byteSource} />
 
             </h1>   
+        <div>{docs}</div>
         
-         <PdfView currentProfile = {currentProfile}/>
          <div>
          <form onSubmit={handleSubmit}>
            <input id = "input" type = "file" onChange= {handlePdfFileAndPdfURL}/>
             <input id = "input" type = "submit"/>
             </form>
 
-            <object type="application/pdf"
-                data={pdfURL}
-                 width="250"
-                 height="200">
-            </object>
+
        
          </div>
 
