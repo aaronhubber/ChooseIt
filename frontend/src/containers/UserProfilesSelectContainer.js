@@ -15,7 +15,6 @@ const ProfileFlex = styled.div`
 display:flex;
 flex-wrap: wrap;
 flex-direction:row;
-padding-top:5vw;
  `
 
 const ProfilePic = styled.img`

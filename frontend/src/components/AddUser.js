@@ -31,12 +31,14 @@ margin:2%;
 background-color:white ;
 width:13em;
 height:20em;
+
 `
 
 const Form = styled.form`
 display:flex;
 flex-direction:column;
 justify-content:center;
+align-items:center;
 `
 
 const Input = styled.input`
@@ -46,7 +48,6 @@ width: 85%;
 `
 const Add = styled.input`
 padding: 0.5vw;
-margin-left:5vw;
 `
 
 const SelectedImage = styled.img`

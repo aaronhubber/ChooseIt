@@ -15,26 +15,64 @@ import Navigation from '../components/Navigation';
 
 
 const FormContainer = styled.form`
+display: flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+`
+  const BothFlex = styled.div`
+  display:flex;
+  flex-direction:row
+  justify-content:space-around;
+  margin-left:100px;
+  margin-right:100px;
+  gap:50px;
 `
 
+
+  const OptionBox = styled.div`
+  display: flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  width:500px;
+  background: white;
+  border-style:solid;
+  border-color:grey;
+  border-width:2px;
+  margin-top:30px;
+  padding:10px;
+
+  
+  `
   const Workshop = styled.div`
+   display:flex;
+    flex:flex-wrap;
+
   `
 
   const Label = styled.label`
   `
   const InputSubmit = styled.input`
-  background-color: #04AA6D;
+  width:150px;
+  background-color: #296364;
   border: none;
   color: white;
-  padding: 16px 32px;
+  padding: 8px 16px;
   text-decoration: none;
   font-size:30px;
-  margin: 4px 2px;
+  margin: 10px 2px;
   cursor: pointer;
   &:hover{
     transform: scale(0.9);};
-  `
 
+  `
+  const Div = styled.div`
+  background-color:white
+  border-style:solid;
+  border-color:grey;
+  border-width: 2px;`
 
 const WorkshopSelectionContainer = ({signOutUser, currentProfile}) => {
 
@@ -87,7 +125,9 @@ const WorkshopSelectionContainer = ({signOutUser, currentProfile}) => {
     <div>
     <Navigation signOutUser = {signOutUser}/>
     <FormContainer method = "POST" onSubmit={handleSubmit}>
-        <Label>Choose your Workshop</Label>
+    <BothFlex>
+        <OptionBox>
+        <Label>Choose Your 1st Workshop</Label>
         <Workshop>
           <label>
             <input
@@ -129,6 +169,9 @@ const WorkshopSelectionContainer = ({signOutUser, currentProfile}) => {
             <img src={gardening} height="70" width="70" />
           </label>
         </Workshop>
+        </OptionBox>
+        <OptionBox>
+        <Label>Choose Your 2nd Workshop</Label>
         <Workshop>
           <label>
             <input
@@ -170,6 +213,8 @@ const WorkshopSelectionContainer = ({signOutUser, currentProfile}) => {
             <img src={gardening} height="70" width="70" />
           </label>
         </Workshop>
+        </OptionBox>
+        </BothFlex>
         <InputSubmit type="submit" value="submit"/>
       </FormContainer>
       <WorkshopPicture randomWorkshop={randomWorkshop} onFavouriteClick={onFavouriteClick}/> 
