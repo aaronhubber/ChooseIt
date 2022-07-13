@@ -26,6 +26,7 @@ const MyEmotion = ({myEmotion}) => {
     pdf.addImage(data, 'PNG', 0, 0, pdfWidth, pdfHeight);
     pdf.save('FEELING.pdf' + Date);
     };
+    
     return (
         <>
         <div>
