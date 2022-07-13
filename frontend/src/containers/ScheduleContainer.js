@@ -43,9 +43,24 @@ text-align-last:center;
 
  const Title = styled.h1`
  text-align:center;
- color:white;
+ color:black;
+ margin-bottom:0;
 
  `
+
+const DownloadButton = styled.button`
+display: flex;
+justify-content:center;
+margin:auto;
+  background-color: #296364;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-size:20px;
+  cursor: pointer;
+  &:hover{
+    transform: scale(0.9);}`;
 
 const ScheduleContainer = ( signOutUser, currentProfile) => {
 
@@ -139,7 +154,7 @@ const activityOptions = allActivityPictures?.map((activity, index,) => {
   return (
     <div>
     <Navigation signOutUser = {signOutUser}/>
-      <Title>Choose What To Do Today!</Title>
+      <Title>Choose What To Do Today!</Title> 
       <PageFlex ref={printRef}>
       <Tile>
         <form>
@@ -194,9 +209,9 @@ const activityOptions = allActivityPictures?.map((activity, index,) => {
           <ActivityPlan activity={activity4} time={time4}/>
           </Tile>
       </PageFlex>
-          <button type="button" onClick={handleDownloadPdf}>
+      <DownloadButton type="button" onClick={handleDownloadPdf}>
         Download as PDF
-        </button>
+        </DownloadButton>
     
     </div>
   )

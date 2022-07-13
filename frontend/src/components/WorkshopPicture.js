@@ -6,7 +6,8 @@ const WorkshopTile = styled.div`
   flex-direction:column;
   /* justify-content:space-between; */
   align-items:center;
-  width:250px;
+  width:400px;
+  height:400px;
   background: white;
   border-style:solid;
   border-color:grey;
@@ -16,8 +17,8 @@ const WorkshopTile = styled.div`
   padding:10px;
 `
 const Img = styled.img`
-width:10em;
-height: 10em;
+width:200px;
+height: 200px;
 border-style:solid;
 border-width:2px;
 border-color:grey;
@@ -31,7 +32,7 @@ padding:0px;
   cursor:pointer;
 }
 `
-const H3 = styled.h2`
+const H3 = styled.h3`
 text-align:center;`
 
 const WorkshopPicture = ({randomWorkshop, onFavouriteClick, favoriteWorkshop}) => {

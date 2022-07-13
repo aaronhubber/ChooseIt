@@ -1,5 +1,14 @@
 import React from "react"
+import styled from 'styled-components'
 
+const FeelingImg = styled.img`
+width:10em;
+height: 10em;
+border-style:solid;
+border-width:2px;
+border-color:grey;
+background: white;
+`
 
 
 
@@ -12,7 +21,7 @@ let byteSource = "data:image/png;base64," + feeling.picture
         <>
         <div>
         {/* {feeling.title} */}
-        <img src = {byteSource} value={feeling}></img>
+        <FeelingImg src = {byteSource} value={feeling}></FeelingImg>
         </div>
         </>
     )
