@@ -23,7 +23,7 @@ align-items:center;
 `
   const BothFlex = styled.div`
   display:flex;
-  flex-direction:row
+  flex-direction:row;
   justify-content:space-around;
   margin-left:100px;
   margin-right:100px;
@@ -69,7 +69,7 @@ align-items:center;
 
   `
   const Div = styled.div`
-  background-color:white
+  background-color:white;
   border-style:solid;
   border-color:grey;
   border-width: 2px;`
@@ -78,6 +78,7 @@ const WorkshopSelectionContainer = ({signOutUser, currentProfile}) => {
 
   const [randomWorkshop, setRandomWorkshop] = useState(null);
   const [randomWorkshop2, setRandomWorkshop2] = useState(null);
+  const [showImages, setShowImages] = useState(false);
   const [favoriteWorkshop, setFavoriteWorkshop] = useState([])
   const [choice1, setChoice1] = useState(null)
   const [choice2, setChoice2] = useState(null)
@@ -116,6 +117,7 @@ const WorkshopSelectionContainer = ({signOutUser, currentProfile}) => {
 
     const handleSubmit = (event) => {
       event.preventDefault();
+      setShowImages(true)
       runForm(choice1, choice2)
     };
 
@@ -217,8 +219,8 @@ const WorkshopSelectionContainer = ({signOutUser, currentProfile}) => {
         </BothFlex>
         <InputSubmit type="submit" value="submit"/>
       </FormContainer>
-      <WorkshopPicture randomWorkshop={randomWorkshop} onFavouriteClick={onFavouriteClick}/> 
-      <WorkshopPicture2 randomWorkshop2={randomWorkshop2} onFavouriteClick={onFavouriteClick}/>
+      {showImages ?  <WorkshopPicture randomWorkshop={randomWorkshop} onFavouriteClick={onFavouriteClick}/> : null}
+      {showImages ? <WorkshopPicture2 randomWorkshop2={randomWorkshop2} onFavouriteClick={onFavouriteClick}/> : null}
       <FavoriteWorkshop favoriteWorkshop={favoriteWorkshop}/>
     </div>
     </>

@@ -19,7 +19,7 @@ function App() {
 
 
   const [allWorkshopPictures, setAllWorkshopPictures] = useState([]);
-  const [currentProfile, setCurrentProfile] = useState(null)
+  const [currentProfile, setCurrentProfile] = useState()
   const [allProfiles, setAllProfiles] = useState([]);
 
 

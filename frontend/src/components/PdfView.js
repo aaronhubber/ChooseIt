@@ -1,9 +1,7 @@
 import React from 'react'
 
-const PdfView = ({currentProfile, pdfURL}) => {
-
-   if(currentProfile.pdfs.length === 0) return null
-
+const PdfView = ({pdf, pdfURL}) => {
+  if(!pdf) return null
 
 
     
@@ -16,7 +14,7 @@ const PdfView = ({currentProfile, pdfURL}) => {
                 height="200">
             </object>  
     </div>
-    <div>{currentProfile.pdfs[0].description}</div>
+    <div>{pdf.description} </div>
     </>
   )
 }

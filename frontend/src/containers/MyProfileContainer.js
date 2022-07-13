@@ -48,8 +48,8 @@ const MyProfileContainer = ({signOutUser, currentProfile}) => {
         event.target.reset();
       };
 
-      const docs = currentProfile.pdfs.map((document, index) => {
-        return <PdfView document={document} pdfURL={pdfURL} key={index} />;
+      const docs = currentProfile.pdfs.map((pdf, index) => {
+        return <PdfView pdf={pdf} pdfURL={pdfURL} key={index} />;
       });
 
     return(
@@ -62,8 +62,10 @@ const MyProfileContainer = ({signOutUser, currentProfile}) => {
             <img src = {byteSource} />
 
             </h1>   
-        <div>{docs}</div>
+          
+        {docs}
         
+
          <div>
          <form onSubmit={handleSubmit}>
            <input id = "input" type = "file" onChange= {handlePdfFileAndPdfURL}/>
