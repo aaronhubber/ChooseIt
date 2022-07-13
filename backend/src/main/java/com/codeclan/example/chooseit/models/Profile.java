@@ -8,6 +8,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static javax.persistence.FetchType.EAGER;
 
 
 @Entity
@@ -31,7 +32,7 @@ public class Profile {
     private ProfilePicture profilepicture;
 
 
-    @OneToMany(mappedBy = "profile", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "profile", cascade = CascadeType.ALL, fetch = EAGER)
 //    @JsonIgnoreProperties({"profile"})
     private List<PdfModel> pdfs;
 

@@ -45,7 +45,7 @@ const UserHomepageContainer = ({signOutUser, currentProfile}) => {
   return (
     <>
     <FlexBox>
-      <Navigation signOutUser = {signOutUser}/>
+      <Navigation signOutUser = {signOutUser} currentProfile={currentProfile}/>
     <div>
     <Link style={{ textDecoration: "none" }} to="/todo">
     <TextAndImage>

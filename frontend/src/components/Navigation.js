@@ -59,7 +59,7 @@ const Navigation = ({signOutUser}) => {
       <List>
         <LeftList>
         <LI>
-        <Link style={{ textDecoration: 'none' }} to="/">
+        <Link style={{ textDecoration: 'none' }} to="/home">
         <p> Home  &nbsp;  <FaHome/> </p>
         </Link>
         </LI>
@@ -72,7 +72,7 @@ const Navigation = ({signOutUser}) => {
         <Logo src = {logo}/>
         <RightList>
         <LI>
-        <Link onClick = {handleSignOut} style={{ textDecoration: "none" }} to="/">
+        <Link onClick = {handleSignOut} style={{ textDecoration: "none" }} to="/home">
         <p> Sign Out &nbsp; &nbsp;<ImExit/> </p>
         </Link>
         </LI>

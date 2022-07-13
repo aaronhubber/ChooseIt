@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Navigation from '../components/Navigation';
-import {getProfilesId} from '../services/services.js';
 
 
-const MyProfileContainer = (signOutUser, currentProfile, selectProfile) => {
 
-    const [myProfile, setMyProfile] = useState(null)
+const MyProfileContainer = ({signOutUser, currentProfile}) => {
 
-    const runForm = () => {
-        getProfilesId().then((res) => setMyProfile(res));
-    }
+
+    if (!currentProfile) return null;
+    let byteSource = "data:image/png;base64," + currentProfile.profilepicture.picture
+    // let byteSourcePdf = "data:application/pdf;base64," + currentProfile.pdfs[0].data
     
-        useEffect(() => {runForm()
-    }, []);
 
     return(
     <>
@@ -20,7 +17,11 @@ const MyProfileContainer = (signOutUser, currentProfile, selectProfile) => {
         <h1>
             Profile Details
             
-            {/* {selectProfile.id} */}
+            {currentProfile.name}
+            {currentProfile.profilepicture.description}
+            <img src = {byteSource} />
+            {currentProfile.pdfs[0].description}
+            {/* <img src = {byteSourcePdf} /> */}
         
         </h1>
     </>

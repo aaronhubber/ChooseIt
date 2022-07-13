@@ -58,7 +58,7 @@ function App() {
     <MainContainer>
     <Router>
         <Routes>
-          <Route path="/" element={ 
+          <Route path="/home" element={ 
             currentProfile? 
             (<UserHomepageContainer currentProfile = {currentProfile}  signOutUser = {signOutUser}/>):
             (<UserProfilesSelectContainer 
@@ -90,7 +90,6 @@ function App() {
 
             <Route path="/myprofile" element={<MyProfileContainer
             signOutUser = {signOutUser}
-            selectProfile = {selectProfile}
             currentProfile = {currentProfile}/>}/>
 
         </Routes>
