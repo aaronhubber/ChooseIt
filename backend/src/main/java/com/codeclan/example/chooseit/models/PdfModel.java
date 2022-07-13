@@ -22,7 +22,6 @@ public class PdfModel {
     private String contentType;
 
 
-
     @ManyToOne(optional = false)
     @JsonIgnoreProperties({"userProfile"})
     @JoinColumn(name = "profile_id", nullable = false)
