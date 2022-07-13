@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Navigation from '../components/Navigation';
 import PdfView from '../components/PdfView'
-
+import { putPdf } from "../services/services";
 
 
 const MyProfileContainer = ({signOutUser, currentProfile}) => {
+
+    const [pdfFile, setPdfFile] = useState();
+    const [pdfURL, setPdfURL] = useState();
+    const [allPdfs, setAllPdfs] = useState();
 
 
     if (!currentProfile) return null;
@@ -12,11 +16,37 @@ const MyProfileContainer = ({signOutUser, currentProfile}) => {
     let byteSource = "data:image/png;base64," + currentProfile.profilepicture.picture
     // let byteSourcePdf = "data:application/pdf;base64," + currentProfile.pdfs[0].data
 
-    const myArray = currentProfile.pdfs
-    console.log(currentProfile)
-
-    if (myArray.length === undefined) return null
     
+    const handlePdfFile = (e) => {
+        const [file] = e.target.files;
+        setPdfFile(file)
+    };
+
+    const handlePdfURL = (e) => {
+        const [file] = e.target.files;
+        setPdfURL(URL.createObjectURL(file));
+    };
+
+      const handlePdfFileAndPdfURL = (event) => {
+        handlePdfURL(event);
+        handlePdfFile(event)
+    };
+
+    const updatePdfList = (file) => {
+        putPdf(currentProfile.id, file).then((profileWithID) => {
+          const temp = [...allPdfs];
+          temp.push(profileWithID);
+          console.log(profileWithID)
+          setAllPdfs(temp);
+        });
+      };
+    
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        updatePdfList(pdfFile,);
+        event.target.reset();
+      };
 
     return(
     <>
@@ -28,10 +58,22 @@ const MyProfileContainer = ({signOutUser, currentProfile}) => {
             {currentProfile.profilepicture.description}
             <img src = {byteSource} />
 
-            </h1>
-            {/* <img src = {byteSourcePdf} /> */}   
-        </h1>
+            </h1>   
+        
          <PdfView currentProfile = {currentProfile}/>
+         <div>
+         <form onSubmit={handleSubmit}>
+           <input id = "input" type = "file" onChange= {handlePdfFileAndPdfURL}/>
+            <input id = "input" type = "submit"/>
+            </form>
+
+            <object type="application/pdf"
+                data={pdfURL}
+                 width="250"
+                 height="200">
+            </object>
+       
+         </div>
 
     </>
 )}

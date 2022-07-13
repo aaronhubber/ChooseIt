@@ -59,9 +59,21 @@ export const postUser = (file, data) => {
   
 };
 
+export const putPdf = (id, file) => {
+  let pdfURL = ("http://localhost:8080/updateuserprofilepdf/" + id)
+  let body = new FormData();
+  body.append('file',file)
+  return fetch(pdfURL, {
+    method: "PUT",
+    body: body
+  }).then ((res)=> res.json());
+
+}
+
 export const getActivityPictures = () => {
   return fetch("http://localhost:8080/activitypictures")
   .then((res) => res.json())
+  
 };
 
 

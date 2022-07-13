@@ -1,4 +1,26 @@
 import React from 'react'
+import styled from 'styled-components'
+
+
+
+
+  const Workshop = styled.div`
+  `
+
+  const Label = styled.label`
+  `
+  const InputSubmit = styled.input`
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  font-size:30px;
+  margin: 4px 2px;
+  cursor: pointer;
+  &:hover{
+    transform: scale(0.9);};
+  `
 
 const EmotionPicture = ({randomEmotion, handleNext, onFavouriteClick}) => {
 
@@ -18,7 +40,7 @@ const EmotionPicture = ({randomEmotion, handleNext, onFavouriteClick}) => {
 
   return (
     <>
-    <div>
+    <div className='test'>
     <h3>{randomEmotion.title}</h3>
     <h3>{randomEmotion.description}</h3>
       <img src = {byteSource} value={randomEmotion} />

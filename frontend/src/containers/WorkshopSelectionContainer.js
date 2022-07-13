@@ -28,7 +28,7 @@ const FormContainer = styled.form`
   color: white;
   padding: 16px 32px;
   text-decoration: none;
-  font-size:30px
+  font-size:30px;
   margin: 4px 2px;
   cursor: pointer;
   &:hover{
