@@ -11,17 +11,13 @@ public class PdfModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Lob
     private byte[] data;
-
     @Column(name = "description")
     private String description;
-
     @Column(name= "content_type")
     private String contentType;
-
-
+    
     @ManyToOne(optional = false)
     @JsonIgnoreProperties({"userProfile"})
     @JoinColumn(name = "profile_id", nullable = false)
