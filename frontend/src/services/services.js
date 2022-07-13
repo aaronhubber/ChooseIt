@@ -47,6 +47,7 @@ export const postUser = (file, data) => {
   body.append('name', data.name);
   body.append('assistanceLevel', data.assistanceLevel);
   body.append('file',file)
+  
 
   // body.append('assistanceLevel', data.assistanceLevel)
 
