@@ -33,7 +33,7 @@ public class Profile {
 
 
     @OneToMany(mappedBy = "profile", cascade = CascadeType.ALL, fetch = EAGER)
-//    @JsonIgnoreProperties({"profile"})
+    @JsonIgnoreProperties({"profile"})
     private List<PdfModel> pdfs;
 
     public Profile() {
@@ -42,6 +42,7 @@ public class Profile {
     public Profile(String name, String assistanceLevel) {
         this.name = name;
         this.assistanceLevel = assistanceLevel;
+        this.pdfs = new ArrayList<>();
 
 
     }

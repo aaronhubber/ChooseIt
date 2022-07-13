@@ -71,6 +71,7 @@ public class UserProfileController {
         picture.setContentType(file.getContentType());
         profile.setProfilepicture(picture);
 
+
         userProfileRepository.save(profile);
         return new ResponseEntity(profile, HttpStatus.OK);
     }
