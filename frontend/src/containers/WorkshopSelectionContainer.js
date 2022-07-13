@@ -23,7 +23,7 @@ align-items:center;
 `
   const BothFlex = styled.div`
   display:flex;
-  flex-direction:row
+  flex-direction:row;
   justify-content:space-around;
   margin-left:100px;
   margin-right:100px;
@@ -43,9 +43,9 @@ align-items:center;
   border-width:2px;
   margin-top:30px;
   padding:10px;
+  `
 
   
-  `
   const Workshop = styled.div`
    display:flex;
     flex:flex-wrap;
@@ -53,6 +53,7 @@ align-items:center;
   `
 
   const Label = styled.label`
+
   `
   const InputSubmit = styled.input`
   width:150px;
@@ -69,10 +70,15 @@ align-items:center;
 
   `
   const Div = styled.div`
-  background-color:white
+  background-color:white;
   border-style:solid;
   border-color:grey;
   border-width: 2px;`
+
+  const WorkshopRandomContainer = styled.div`
+  display:flex;
+  flex-direction:row;
+  justify-content:space-evenly;`
 
 const WorkshopSelectionContainer = ({signOutUser, currentProfile}) => {
 
@@ -217,9 +223,11 @@ const WorkshopSelectionContainer = ({signOutUser, currentProfile}) => {
         </BothFlex>
         <InputSubmit type="submit" value="submit"/>
       </FormContainer>
+      <WorkshopRandomContainer>
       <WorkshopPicture randomWorkshop={randomWorkshop} onFavouriteClick={onFavouriteClick}/> 
-      <WorkshopPicture2 randomWorkshop2={randomWorkshop2} onFavouriteClick={onFavouriteClick}/>
+      <WorkshopPicture randomWorkshop={randomWorkshop2} onFavouriteClick={onFavouriteClick}/>
       <FavoriteWorkshop favoriteWorkshop={favoriteWorkshop}/>
+      </WorkshopRandomContainer>
     </div>
     </>
   )
