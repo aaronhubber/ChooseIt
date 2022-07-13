@@ -13,10 +13,8 @@ code {
 }
 
 
-
-
 body {
-  background-image:url("/Users/jasminemills/CodeClan_work/final_project/chooseit/ChooseIt/frontend/src/assets/images/background.png");
+  background-image:url("./assets/images/background.png");
  background-size:cover;
 }
 
