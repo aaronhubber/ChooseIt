@@ -29,7 +29,7 @@ const FavouriteWorkshops = ({favoriteWorkshop}) => {
     return (
         <>
         <div>
-        <h3>Favourite Workshops:</h3>
+        <h3>My Choices:</h3>
         <div ref={printRef}>{bestWorkshop}</div>
         <div id="map"></div>
         <button type="button" onClick={handleDownloadPdf}>

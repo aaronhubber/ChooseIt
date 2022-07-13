@@ -5,8 +5,7 @@ const FavWorkshop = ({workshop}) => {
 
     return (
         <>
-        <h2>Chosen Workshops</h2>
-        <p className="fac-workshops">{workshop.genre}</p>
+        <p>{workshop.genre}</p>
         </>
     )
 }
