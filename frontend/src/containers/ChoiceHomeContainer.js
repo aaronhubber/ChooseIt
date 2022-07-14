@@ -33,8 +33,7 @@ align-items:center;`
 
 
 const Img = styled.img`
-width:12em;
-height: 12em;
+width:250px;
 border-style:solid;
 border-width:2px;
 border-color:grey;

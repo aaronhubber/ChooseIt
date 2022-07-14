@@ -11,6 +11,12 @@ border-style:solid;
 border-width:2px;
 border-color:grey;
 margin-left:50px;
+width:300px;
+`
+
+const SelectedImage = styled.img`
+width:50%;
+;
 `
 
 const InputSubmit = styled.input`
@@ -25,6 +31,20 @@ const InputSubmit = styled.input`
   cursor: pointer;
   &:hover{
     transform: scale(0.9);};`
+
+const InputChoose = styled.input`
+width: 155px;
+background-color: #296364;
+border: none;
+color: white;
+padding: 8px 16px;
+text-decoration: none;
+font-size:30px;
+margin: 10px 2px;
+cursor: pointer;
+&:hover{
+  transform: scale(0.9);};`
+
 
 const FileButton = styled.input`
   width: 0.1px;
@@ -49,6 +69,13 @@ padding:11px;
 `
 const H1 = styled.h1`
 text-align:center;`
+
+const H2 = styled.h2`
+text-align:center;`
+
+const MainFlex = styled.div`
+display:flex;
+flex-direction:row;`
 
 const MyProfileContainer = ({signOutUser, currentProfile}) => {
 
@@ -101,23 +128,27 @@ const MyProfileContainer = ({signOutUser, currentProfile}) => {
     return(
     <>
     <Navigation signOutUser = {signOutUser}/>
-        <H1>{currentProfile.name}'s Profile</H1>       
-        <Pic src = {byteSource} />           
+        <H1>{currentProfile.name}'s Profile</H1>  
+        <H2>Assistance required: {currentProfile.assistanceLevel}</H2> 
+        <MainFlex>
+        <div>
+        <Pic src = {byteSource} />          
+        </div> 
         {docs}
          <div>
          <form onSubmit={handleSubmit}>
-         <Label>
+         {/* <Label>
          Upload PDF
-        <FaFileUpload/>
-           <FileButton id = "input" type = "file" onChange= {handlePdfFileAndPdfURL}/>
-           </Label>
+        <FaFileUpload/> */}
+           <InputChoose id = "input" type = "file" onChange= {handlePdfFileAndPdfURL}/>
+           <SelectedImage  width = "100vw" src={pdfURL} alt="" />
+           {/* </Label> */}
             <InputSubmit id = "input" type = "submit"/>
         </form>
          </div>
+         </MainFlex>
 
     </>
 )}
-
-// trying to find id by profile, ideally when we get to this page it would have selected the profile and stored it under either current profile or select profile and then we can access as normal. Perhaps we have to map to select an id? 
 
 export default MyProfileContainer
