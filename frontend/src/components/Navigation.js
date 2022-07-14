@@ -69,7 +69,7 @@ const Navigation = ({signOutUser}) => {
         </Link>
         </LI>
         </LeftList>
-        <Logo src = {logo}/>
+        <Logo  aria-label="choose it" src = {logo}/>
         <RightList>
         <LI>
         <Link onClick = {handleSignOut} style={{ textDecoration: "none" }} to="/home">
