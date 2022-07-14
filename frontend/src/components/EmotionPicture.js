@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import yes from "../assets/images/yes.png";
+import next from "../assets/images/next.png";
 
 
   const InputSubmit = styled.input`
@@ -23,7 +25,45 @@ import styled from 'styled-components'
   border-width:2px;
   padding:20px;
   display:flex;
-  flex-direction:column;`
+  flex-direction:column;
+  justify-content: center;
+  align-items:center;
+  width:50vw;`
+
+  const Check = styled.img`
+  width: 100px;
+  cursor: pointer;
+  &:hover{
+    transform: scale(0.9);}`
+
+const Next = styled.img`
+width:100px;
+cursor: pointer;
+&:hover{
+  transform: scale(0.9);}`
+
+  const Picture = styled.img`
+  background:white;
+  border-style:solid;
+  border-width:2px;
+  border-color:grey;
+  height:20vw;`
+
+  const Buttons = styled.div`
+  display:flex;
+  flex-direction: row;
+  `
+
+const H2 = styled.h2`
+text-align:center;
+padding:0;
+margin:0;`
+
+const H3 = styled.h3`
+text-align:center;
+padding:0;
+margin-bottom:8px;
+margin-top:0;`
 
 const EmotionPicture = ({randomEmotion, handleNext, onFavouriteClick}) => {
 
@@ -44,11 +84,15 @@ const EmotionPicture = ({randomEmotion, handleNext, onFavouriteClick}) => {
   return (
     <>
     <Body>
-    <h3>{randomEmotion.title}</h3>
-    <h3>{randomEmotion.description}</h3>
-      <img src = {byteSource} value={randomEmotion} />
-      <button onClick={handleNext} >Next</button>
-      <button onClick={handleFavouriteClick} >Add To My Feelings</button>
+    <H2>{randomEmotion.title}</H2>
+    <H3>{randomEmotion.description}</H3>
+      <Picture src = {byteSource} value={randomEmotion} />
+      <Buttons>
+      <Check src = {yes} onClick={handleFavouriteClick} alt = "yes"/>
+      <Next src = {next} onClick={handleNext} alt = "next"/>
+      {/* <button onClick={handleNext} >Next</button> */}
+      {/* <button onClick={handleFavouriteClick} >Add To My Feelings</button> */}
+      </Buttons>
     </Body>
     </>
   )

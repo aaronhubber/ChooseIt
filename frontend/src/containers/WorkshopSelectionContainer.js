@@ -88,6 +88,20 @@ color:white;
   justify-content:space-evenly;`
 
 
+const DownloadButton = styled.button`
+display: flex;
+justify-content:center;
+margin:auto;
+  background-color: #296364;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-size:20px;
+  cursor: pointer;
+  &:hover{
+    transform: scale(0.9);}`;
+  
 const WorkshopSelectionContainer = ({signOutUser, currentProfile}) => {
 
   const [randomWorkshop, setRandomWorkshop] = useState(null);
@@ -235,9 +249,10 @@ const WorkshopSelectionContainer = ({signOutUser, currentProfile}) => {
         </BothFlex>
         <InputSubmit type="submit" value="submit"/>
       </FormContainer>
+      <WorkshopRandomContainer>
 
       {showImages ?  <WorkshopPicture randomWorkshop={randomWorkshop} onFavouriteClick={onFavouriteClick}/> : null}
-      {showImages ? <WorkshopPicture2 randomWorkshop2={randomWorkshop2} onFavouriteClick={onFavouriteClick}/> : null}
+      {showImages ? <WorkshopPicture randomWorkshop={randomWorkshop2} onFavouriteClick={onFavouriteClick}/> : null}
 
       <FavoriteWorkshop favoriteWorkshop={favoriteWorkshop}/>
       </WorkshopRandomContainer>

@@ -22,7 +22,10 @@ a:-webkit-any-link {
   text-decoration: none;
   cursor: pointer;
   color:black;
+  
 }
+a:-webkit-any-link:hover{
+  color:#296364}
 
 [type="radio"] {
   position: absolute;
